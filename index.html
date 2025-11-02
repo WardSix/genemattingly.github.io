@@ -3,50 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gene Mattingly Photography</title>
+    <title>Gene Mattingly Photography | Texas Event, Portrait & Automotive Photographer</title>
+    <meta name=\"description\" content=\"Browse Gene Mattingly�s cinematic photography portfolio featuring Texas-based senior portraits, automotive sessions, birthday celebrations, and baby showers. Book today for bold storytelling imagery.\">
+    <meta name="author" content="Gene Mattingly">
+    <meta name="keywords" content="Gene Mattingly, Texas photographer, automotive photography, senior portraits, event photographer, baby shower photography, birthday party photography">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Gene Mattingly Photography | Texas Event, Portrait & Automotive Photographer">
+    <meta property="og:description" content="Cinematic photography for seniors, automotive enthusiasts, birthdays, and baby showers across Texas. Explore featured collections and book your session.">
+    <meta property="og:url" content="https://genemattingly.github.io/">
+    <meta property="og:image" content="https://genemattingly.github.io/images/creative/main.JPG">
+    <meta property="og:image:alt" content="Creative neon portrait by Gene Mattingly Photography">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Gene Mattingly Photography">
+    <meta name="twitter:description" content="Texas-based photographer capturing seniors, autos, and milestone events with cinematic flair.">
+    <meta name="twitter:image" content="https://genemattingly.github.io/images/creative/main.JPG">
+    <link rel="canonical" href="https://genemattingly.github.io/">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: #000;
-            color: #fff;
-            scroll-behavior: smooth;
+    <link rel="stylesheet" href="css/style.css">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Gene Mattingly",
+            "url": "https://genemattingly.github.io/",
+            "image": "https://genemattingly.github.io/images/branding/gmlogoregular.png",
+            "jobTitle": "Photographer",
+            "description": "Texas photographer delivering cinematic automotive, senior, and event imagery.",
+            "worksFor": {
+                "@type": "Organization",
+                "name": "Gene Mattingly Photography"
+            },
+            "address": {
+                "@type": "PostalAddress",
+                "addressRegion": "TX",
+                "addressCountry": "US"
+            },
+            "sameAs": [
+                "https://www.instagram.com/mattingly.gene/",
+                "https://www.facebook.com/profile.php?id=61552655258662"
+            ],
+            "serviceArea": {
+                "@type": "State",
+                "name": "Texas"
+            }
         }
-
-        /* Fade-up animation support */
-        .fade-section {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .fade-section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Lightbox overlay styles */
-        #lightbox {
-            background: rgba(0, 0, 0, 0.9);
-        }
-
-        #lightbox img {
-            max-height: 80vh;
-            max-width: 90vw;
-        }
-    </style>
+    </script>
 </head>
-<body class="antialiased">
+<body class="antialiased bg-black">
     <header class="fixed top-0 inset-x-0 z-30 bg-black/80 backdrop-blur border-b border-white/10">
         <nav class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-            <span class="tracking-widest text-sm md:text-base">GENE MATTINGLY</span>
+            <a href="#hero" class="flex items-center gap-3">
+                <img src="images/branding/gmlogoregular.png" alt="Gene Mattingly Photography" class="h-10 w-auto hidden md:block">
+                <img src="images/branding/gmlogoinverted.png" alt="Gene Mattingly Photography" class="h-8 w-auto md:hidden">
+            </a>
             <div class="flex items-center gap-6 text-xs md:text-sm uppercase">
                 <a href="#hero" class="hover:text-red-600 transition-colors">Home</a>
                 <a href="#about" class="hover:text-red-600 transition-colors">About</a>
                 <a href="#portfolio" class="hover:text-red-600 transition-colors">Portfolio</a>
+                <a href="#pricing" class="hover:text-red-600 transition-colors">Pricing</a>
                 <a href="#contact" class="hover:text-red-600 transition-colors">Contact</a>
             </div>
         </nav>
@@ -54,7 +71,7 @@
 
     <main class="pt-24">
         <section id="hero" class="relative min-h-screen flex items-center justify-center text-center fade-section">
-            <div class="absolute inset-0 -z-10 bg-cover bg-center md:bg-fixed" style="background-image: url('https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1600&q=80');"></div>
+            <div class="absolute inset-0 -z-10 bg-cover bg-center md:bg-fixed" style="background-image: url('images/hero.jpg');"></div>
             <div class="absolute inset-0 -z-10 bg-black/70"></div>
             <div class="max-w-3xl mx-auto px-6 space-y-6">
                 <p class="text-sm uppercase tracking-[0.4em] text-red-600">Captured Moments</p>
@@ -72,17 +89,19 @@
             </a>
         </section>
 
-        <section id="about" class="max-w-6xl mx-auto px-6 py-24 fade-section">
-            <div class="grid gap-12 md:grid-cols-2 md:items-center">
-                <div class="relative">
-                    <div class="absolute -top-6 -left-6 h-24 w-24 border border-red-700/60"></div>
-                    <img src="https://images.unsplash.com/photo-1503341733015-7cc94d60d47b?auto=format&fit=crop&w=800&q=80" alt="Gene Mattingly portrait" class="relative z-10 w-full rounded-md border border-white/10 shadow-lg shadow-red-900/30">
-                </div>
-                <div class="space-y-6">
-                    <div class="h-1 w-16 bg-red-700"></div>
-                    <h2 class="text-3xl md:text-4xl font-semibold tracking-tight">About Gene</h2>
-                    <p class="text-white/70 leading-relaxed">Gene Mattingly is a Texas-based photographer with a passion for capturing the energy of events and the authenticity of portraits. His cinematic approach blends dramatic lighting with candid storytelling, creating images that feel both timeless and intensely present.</p>
-                    <p class="text-white/70 leading-relaxed">Whether documenting life&rsquo;s celebrations or crafting intimate portraits, Gene delivers a bespoke experience that prioritizes connection, comfort, and artistry.</p>
+        <section id="about" class="bg-black">
+            <div class="max-w-6xl mx-auto px-6 py-24 fade-section">
+                <div class="grid gap-12 md:grid-cols-2 md:items-center">
+                    <div class="relative">
+                        <div class="absolute -top-6 -left-6 h-24 w-24 border border-red-700/60"></div>
+                        <img src="images/gene_headshot.jpg" alt="Gene Mattingly portrait" class="relative z-10 w-full rounded-md border border-white/10 shadow-lg shadow-red-900/30">
+                    </div>
+                    <div class="space-y-6">
+                        <div class="h-1 w-16 bg-red-700"></div>
+                        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight">About Gene</h2>
+                        <p class="text-white/70 leading-relaxed">Gene Mattingly is a Texas-based photographer with a passion for capturing the energy of events and the authenticity of portraits. His cinematic approach blends dramatic lighting with candid storytelling, creating images that feel both timeless and intensely present.</p>
+                        <p class="text-white/70 leading-relaxed">Whether documenting life’s celebrations or crafting intimate portraits, Gene delivers a bespoke experience that prioritizes connection, comfort, and artistry.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -94,80 +113,188 @@
                         <p class="text-sm uppercase tracking-[0.35em] text-red-600">Portfolio</p>
                         <h2 class="text-3xl md:text-4xl font-semibold mt-2">Featured Collections</h2>
                     </div>
-                    <div class="flex flex-wrap gap-3">
-                        <button class="portfolio-filter px-4 py-2 border border-white/20 text-xs uppercase tracking-wide hover:border-red-700 hover:text-red-500 transition-colors" data-filter="all">All</button>
-                        <button class="portfolio-filter px-4 py-2 border border-white/20 text-xs uppercase tracking-wide hover:border-red-700 hover:text-red-500 transition-colors" data-filter="events">Events</button>
-                        <button class="portfolio-filter px-4 py-2 border border-white/20 text-xs uppercase tracking-wide hover:border-red-700 hover:text-red-500 transition-colors" data-filter="portraits">Portraits</button>
-                        <button class="portfolio-filter px-4 py-2 border border-white/20 text-xs uppercase tracking-wide hover:border-red-700 hover:text-red-500 transition-colors" data-filter="creative">Creative</button>
+                    <div class="relative">
+                        <span class="pointer-events-none absolute inset-y-0 -left-6 w-24 bg-red-700/20 blur-3xl opacity-60"></span>
+                        <div class="portfolio-filter-tray relative flex gap-2 overflow-x-auto no-scrollbar px-2 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur">
+                            <button class="portfolio-filter filter-chip" data-filter="all"><span>All</span></button>
+                            <button class="portfolio-filter filter-chip" data-filter="creative"><span>Creative</span></button>
+                            <button class="portfolio-filter filter-chip" data-filter="automotive"><span>Autos</span></button>
+                            <button class="portfolio-filter filter-chip" data-filter="sports"><span>Sports</span></button>
+                            <button class="portfolio-filter filter-chip" data-filter="tayla_graduation"><span>Tayla &mdash; Senior</span></button>
+                            <button class="portfolio-filter filter-chip" data-filter="tomey_babyshower"><span>Tomey &mdash; Baby Shower</span></button>
+                            <button class="portfolio-filter filter-chip" data-filter="kathy_birthday"><span>Kathy &mdash; Birthday</span></button>
+                        </div>
                     </div>
                 </div>
+
                 <div class="portfolio-grid grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                    <figure class="portfolio-item relative overflow-hidden group" data-category="events">
-                        <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=900&q=80" alt="Events" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                        <figcaption class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 text-xs uppercase tracking-wide">Events</figcaption>
+                    <figure class="portfolio-item relative overflow-hidden group cursor-pointer" data-category="creative" data-gallery="creative">
+                        <img src="images/creative/main.JPG" alt="Creative neon portrait" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <figcaption class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 text-xs uppercase tracking-wide">
+                            <span class="flex items-center gap-2">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m3.75 7.5 1.5-1.5H9l1.5-1.5h3L15 6h3.75l1.5 1.5v10.5a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9.75a3.75 3.75 0 1 0 0 7.5 3.75 3.75 0 0 0 0-7.5Z"/>
+                                </svg>
+                                Creative
+                            </span>
+                        </figcaption>
                     </figure>
-                    <figure class="portfolio-item relative overflow-hidden group" data-category="portraits">
-                        <img src="https://images.unsplash.com/photo-1465145498025-928c7a71cab9?auto=format&fit=crop&w=900&q=80" alt="Portraits" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                        <figcaption class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 text-xs uppercase tracking-wide">Portraits</figcaption>
+                    <figure class="portfolio-item relative overflow-hidden group cursor-pointer" data-category="automotive" data-gallery="automotive">
+                        <img src="images/automotive/main.jpeg" alt="Nighttime automotive portrait in downtown Dallas" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <figcaption class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 text-xs uppercase tracking-wide">
+                            <span class="flex items-center gap-2">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m3.75 7.5 1.5-1.5H9l1.5-1.5h3L15 6h3.75l1.5 1.5v10.5a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9.75a3.75 3.75 0 1 0 0 7.5 3.75 3.75 0 0 0 0-7.5Z"/>
+                                </svg>
+                                Autos
+                            </span>
+                        </figcaption>
                     </figure>
-                    <figure class="portfolio-item relative overflow-hidden group" data-category="creative">
-                        <img src="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=900&q=80" alt="Creative" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                        <figcaption class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 text-xs uppercase tracking-wide">Creative</figcaption>
+                    <figure class="portfolio-item relative overflow-hidden group cursor-pointer" data-category="sports" data-gallery="sports">
+                        <img src="images/sports/main.jpg" alt="Sprinter exploding off the blocks" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <figcaption class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 text-xs uppercase tracking-wide">
+                            <span class="flex items-center gap-2">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m3.75 7.5 1.5-1.5H9l1.5-1.5h3L15 6h3.75l1.5 1.5v10.5a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9.75a3.75 3.75 0 1 0 0 7.5 3.75 3.75 0 0 0 0-7.5Z"/>
+                                </svg>
+                                Sports
+                            </span>
+                        </figcaption>
                     </figure>
-                    <figure class="portfolio-item relative overflow-hidden group" data-category="events">
-                        <img src="https://images.unsplash.com/photo-1542317854-0d6ae4650c6b?auto=format&fit=crop&w=900&q=80" alt="Events" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                        <figcaption class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 text-xs uppercase tracking-wide">Events</figcaption>
+                    <figure class="portfolio-item relative overflow-hidden group cursor-pointer" data-category="tayla_graduation" data-gallery="tayla_graduation">
+                        <img src="images/tayla_graduation/main.jpg" alt="Tayla senior portrait laughing in downtown Fort Worth" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <figcaption class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 text-xs uppercase tracking-wide">
+                            <span class="flex items-center gap-2">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m3.75 7.5 1.5-1.5H9l1.5-1.5h3L15 6h3.75l1.5 1.5v10.5a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9.75a3.75 3.75 0 1 0 0 7.5 3.75 3.75 0 0 0 0-7.5Z"/>
+                                </svg>
+                                Tayla &mdash; Senior
+                            </span>
+                        </figcaption>
                     </figure>
-                    <figure class="portfolio-item relative overflow-hidden group" data-category="portraits">
-                        <img src="https://images.unsplash.com/photo-1475727946784-2890c8fdb9c1?auto=format&fit=crop&w=900&q=80" alt="Portraits" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                        <figcaption class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 text-xs uppercase tracking-wide">Portraits</figcaption>
+                    <figure class="portfolio-item relative overflow-hidden group cursor-pointer" data-category="tomey_babyshower" data-gallery="tomey_babyshower">
+                        <img src="images/tomey_babyshower/main.jpg" alt="Tomey baby shower laughter" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <figcaption class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 text-xs uppercase tracking-wide">
+                            <span class="flex items-center gap-2">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m3.75 7.5 1.5-1.5H9l1.5-1.5h3L15 6h3.75l1.5 1.5v10.5a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9.75a3.75 3.75 0 1 0 0 7.5 3.75 3.75 0 0 0 0-7.5Z"/>
+                                </svg>
+                                Tomey &mdash; Baby Shower
+                            </span>
+                        </figcaption>
                     </figure>
-                    <figure class="portfolio-item relative overflow-hidden group" data-category="creative">
-                        <img src="https://images.unsplash.com/photo-1517142089942-ba376ce32a0b?auto=format&fit=crop&w=900&q=80" alt="Creative" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                        <figcaption class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 text-xs uppercase tracking-wide">Creative</figcaption>
+                    <figure class="portfolio-item relative overflow-hidden group cursor-pointer" data-category="kathy_birthday" data-gallery="kathy_birthday">
+                        <img src="images/kathy_birthday/main.jpg" alt="Kathy birthday party celebration" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <figcaption class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 text-xs uppercase tracking-wide">
+                            <span class="flex items-center gap-2">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m3.75 7.5 1.5-1.5H9l1.5-1.5h3L15 6h3.75l1.5 1.5v10.5a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9.75a3.75 3.75 0 1 0 0 7.5 3.75 3.75 0 0 0 0-7.5Z"/>
+                                </svg>
+                                Kathy &mdash; Birthday
+                            </span>
+                        </figcaption>
                     </figure>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="py-24 fade-section">
-            <div class="max-w-4xl mx-auto px-6">
+        <section id="pricing" class="bg-black py-24 fade-section">
+            <div class="max-w-5xl mx-auto px-6 space-y-16">
+                <div class="space-y-4 text-center">
+                    <p class="text-sm uppercase tracking-[0.35em] text-red-600">Investment</p>
+                    <h2 class="text-3xl md:text-4xl font-semibold">Signature Services</h2>
+                    <p class="text-white/70 max-w-3xl mx-auto">Tailored sessions designed around bold storytelling, cinematic lighting, and a collaborative planning experience. Every package includes edited high-resolution images, online delivery, and options to add video or travel.</p>
+                </div>
+                <div class="grid gap-8 md:grid-cols-2">
+                    <article class="pricing-card border border-white/10 bg-white/5 backdrop-blur p-8 space-y-4">
+                        <h3 class="text-xl font-semibold tracking-wide uppercase">Senior Portraits</h3>
+                        <p class="text-4xl font-semibold text-red-500">$450</p>
+                        <ul class="text-white/70 space-y-2 text-sm leading-relaxed">
+                            <li>Up to 2 hours on location</li>
+                            <li>Wardrobe planning and mood board</li>
+                            <li>20+ edited portraits with cinematic grading</li>
+                        </ul>
+                    </article>
+                    <article class="pricing-card border border-white/10 bg-white/5 backdrop-blur p-8 space-y-4">
+                        <h3 class="text-xl font-semibold tracking-wide uppercase">Events</h3>
+                        <p class="text-4xl font-semibold text-red-500">$200<span class="text-base text-white/60 font-normal"> /hr</span></p>
+                        <ul class="text-white/70 space-y-2 text-sm leading-relaxed">
+                            <li>Two-hour minimum coverage</li>
+                            <li>Same-week highlight gallery</li>
+                            <li>Optional photo + video bundle</li>
+                        </ul>
+                    </article>
+                    <article class="pricing-card border border-white/10 bg-white/5 backdrop-blur p-8 space-y-4">
+                        <h3 class="text-xl font-semibold tracking-wide uppercase">Sports Coverage</h3>
+                        <p class="text-4xl font-semibold text-red-500">$300</p>
+                        <ul class="text-white/70 space-y-2 text-sm leading-relaxed">
+                            <li>Single game or meet coverage</li>
+                            <li>Action gallery with social-ready edits</li>
+                            <li>Team add-ons and print bundles available</li>
+                        </ul>
+                    </article>
+                    <article class="pricing-card border border-white/10 bg-white/5 backdrop-blur p-8 space-y-4">
+                        <h3 class="text-xl font-semibold tracking-wide uppercase">Autos</h3>
+                        <p class="text-4xl font-semibold text-red-500">$400</p>
+                        <ul class="text-white/70 space-y-2 text-sm leading-relaxed">
+                            <li>Location scouting and lighting design</li>
+                            <li>Detail + hero shots (20 deliverables)</li>
+                            <li>Rolling or rig shots addt'l charge</li>
+                        </ul>
+                    </article>
+                    <article class="pricing-card border border-white/10 bg-white/5 backdrop-blur p-8 space-y-4 md:col-span-2">
+                        <div class="md:flex md:items-start md:justify-between md:gap-6">
+                            <div class="space-y-3">
+                                <h3 class="text-xl font-semibold tracking-wide uppercase">Videography Services</h3>
+                                <p class="text-white/70 text-sm leading-relaxed">Cinematic coverage for events, senior spotlights, behind-the-scenes features, and branded stories.</p>
+                            </div>
+                            <p class="text-4xl font-semibold text-red-500 mt-4 md:mt-0">$450<span class="text-base text-white/60 font-normal"> /hr</span></p>
+                        </div>
+                        <ul class="text-white/70 space-y-2 text-sm leading-relaxed">
+                            <li>Two-hour minimum coverage</li>
+                            <li>4K capture with stabilized rigs and audio</li>
+                            <li>Highlight cuts, social reels, and interview edits</li>
+                            <li>Storyboarding and music licensing included</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-24 bg-black">
+            <div class="max-w-4xl mx-auto px-6 fade-section">
                 <div class="bg-black border border-red-700/50 p-10 space-y-10">
                     <div>
                         <p class="text-sm uppercase tracking-[0.35em] text-red-600">Connect</p>
-                        <h2 class="text-3xl md:text-4xl font-semibold mt-2">Let&rsquo;s Capture Your Story</h2>
+<h2 class="text-3xl md:text-4xl font-semibold mt-2">Let's Capture Your Story</h2>
                     </div>
-                    <form class="grid gap-6">
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <label class="space-y-2 text-sm uppercase tracking-wide text-white/70">
-                                Name
-                                <input type="text" name="name" placeholder="Your name" class="w-full bg-black border border-white/15 px-4 py-3 focus:border-red-600 focus:ring-0 transition-colors">
-                            </label>
-                            <label class="space-y-2 text-sm uppercase tracking-wide text-white/70">
-                                Email
-                                <input type="email" name="email" placeholder="Your email" class="w-full bg-black border border-white/15 px-4 py-3 focus:border-red-600 focus:ring-0 transition-colors">
-                            </label>
-                        </div>
-                        <label class="space-y-2 text-sm uppercase tracking-wide text-white/70">
-                            Message
-                            <textarea name="message" rows="5" placeholder="Tell me about your project" class="w-full bg-black border border-white/15 px-4 py-3 focus:border-red-600 focus:ring-0 transition-colors"></textarea>
-                        </label>
-                        <button type="submit" class="self-start px-6 py-3 border border-red-700 text-xs uppercase tracking-[0.3em] hover:bg-red-700 transition-colors">Send Message</button>
-                    </form>
+                    <div class="space-y-6 text-white/70 leading-relaxed">
+                        <p>Ready to collaborate? Share the details of your event, portrait session, or creative concept and Gene will follow up with availability and next steps.</p>
+                        <p>You can also reach out directly through the form below to streamline the booking process.</p>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeGF5PzayVjVRZ0VsWaQsrRIwJp2Bu8wKzFzFMX-6H-sMVVbQ/viewform?usp=header" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-6 py-3 border border-red-700 text-xs uppercase tracking-[0.3em] hover:bg-red-700 transition-colors">
+                            Open Contact Form
+                        </a>
+                    </div>
                     <div class="flex items-center gap-6">
-                        <a href="#" aria-label="Instagram" class="p-3 border border-white/15 hover:border-red-700 transition-colors">
+                        <a href="https://www.instagram.com/mattingly.gene/" aria-label="Instagram" class="p-3 border border-white/15 hover:border-red-700 transition-colors">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
                                 <rect x="3" y="3" width="18" height="18" rx="4" ry="4"></rect>
                                 <circle cx="12" cy="12" r="3.5"></circle>
                                 <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"></circle>
                             </svg>
                         </a>
-                        <a href="#" aria-label="Facebook" class="p-3 border border-white/15 hover:border-red-700 transition-colors">
+                        <a href="https://www.facebook.com/profile.php?id=61552655258662" aria-label="Facebook" class="p-3 border border-white/15 hover:border-red-700 transition-colors">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M22 12.07C22 6.475 17.523 2 11.93 2 6.337 2 1.86 6.475 1.86 12.07c0 4.958 3.657 9.074 8.438 9.878v-6.993H7.898v-2.885h2.4V9.845c0-2.372 1.414-3.68 3.577-3.68 1.036 0 2.122.185 2.122.185v2.335h-1.195c-1.178 0-1.545.731-1.545 1.48v1.777h2.627l-.42 2.885h-2.207v6.993C18.343 21.144 22 17.027 22 12.07Z"/>
                             </svg>
                         </a>
-                        <a href="mailto:hello@example.com" aria-label="Email" class="p-3 border border-white/15 hover:border-red-700 transition-colors">
+                        <a href="mailto:mattingly.gene@gmail.com" aria-label="Email" class="p-3 border border-white/15 hover:border-red-700 transition-colors">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75v10.5a2.25 2.25 0 002.25 2.25h15a2.25 2.25 0 002.25-2.25V6.75m-19.5 0L12 13.5l9.75-6.75m-19.5 0A2.25 2.25 0 015.25 4.5h13.5a2.25 2.25 0 012.25 2.25"/>
                             </svg>
@@ -178,100 +305,41 @@
         </section>
     </main>
 
-    <footer class="border-t border-white/10 bg-black py-6 text-center text-xs tracking-[0.4em] uppercase">
-        &copy; 2025 Gene Mattingly Photography
+    <footer class="border-t border-white/10 bg-black py-6 text-center text-xs tracking-[0.4em] uppercase space-y-3">
+        <div class="flex items-center justify-center">
+            <img src="images/branding/gmlogoinverted.png" alt="Gene Mattingly Photography logo" class="h-10 w-auto">
+        </div>
+        <div>&copy; 2025 Gene Mattingly Photography</div>
     </footer>
 
-    <div id="lightbox" class="hidden fixed inset-0 z-50 flex items-center justify-center">
+    <div id="gallery-overlay" class="hidden fixed inset-0 z-[60] bg-black/95 backdrop-blur-sm">
+        <button id="gallery-overlay-close" class="absolute top-6 right-6 text-white/70 hover:text-red-600 transition-colors text-3xl" aria-label="Close">&times;</button>
+        <div class="h-full flex items-center justify-center gap-6 px-6 md:px-12">
+            <button type="button" id="gallery-overlay-prev" class="h-11 w-11 rounded-full border border-white/20 bg-black/60 hover:border-red-700 hover:text-red-500 transition-colors flex items-center justify-center" aria-label="Previous image">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m15.75 19.5-7.5-7.5 7.5-7.5" />
+                </svg>
+            </button>
+            <div class="max-w-5xl w-full flex flex-col items-center gap-4">
+                <img id="gallery-overlay-image" src="" alt="" class="w-full max-h-[70vh] object-contain rounded border border-white/10 bg-black" data-lightbox-trigger>
+                <div class="flex items-center gap-3 text-xs uppercase tracking-wide text-white/80">
+                    <span id="gallery-overlay-label"></span>
+                    <span class="text-white/50" id="gallery-overlay-indicator"></span>
+                </div>
+            </div>
+            <button type="button" id="gallery-overlay-next" class="h-11 w-11 rounded-full border border-white/20 bg-black/60 hover:border-red-700 hover:text-red-500 transition-colors flex items-center justify-center" aria-label="Next image">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <div id="lightbox" class="hidden fixed inset-0 z-[70] flex items-center justify-center">
         <button id="lightbox-close" class="absolute top-6 right-6 text-white/70 hover:text-red-600 transition-colors text-3xl" aria-label="Close">&times;</button>
         <img src="" alt="Expanded portfolio image" class="rounded shadow-lg shadow-black/90 border border-white/10">
     </div>
 
-    <script>
-        // Smooth scroll for internal links
-        document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
-            anchor.addEventListener('click', function (event) {
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    event.preventDefault();
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
-
-        // Fade-in on scroll using Intersection Observer
-        const observer = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry) {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.2 });
-
-        document.querySelectorAll('.fade-section').forEach(function (section) {
-            observer.observe(section);
-        });
-
-        // Portfolio filter buttons
-        const filterButtons = document.querySelectorAll('.portfolio-filter');
-        const portfolioItems = document.querySelectorAll('.portfolio-item');
-
-        filterButtons.forEach(function (button) {
-            button.addEventListener('click', function () {
-                const filter = this.dataset.filter;
-
-                filterButtons.forEach(function (btn) { btn.classList.remove('border-red-700', 'text-red-500'); });
-                this.classList.add('border-red-700', 'text-red-500');
-
-                portfolioItems.forEach(function (item) {
-                    if (filter === 'all' || item.dataset.category === filter) {
-                        item.classList.remove('hidden');
-                        item.classList.add('block');
-                    } else {
-                        item.classList.add('hidden');
-                        item.classList.remove('block');
-                    }
-                });
-            });
-        });
-
-        // Activate "All" filter by default
-        const defaultFilter = document.querySelector('.portfolio-filter[data-filter="all"]');
-        if (defaultFilter) {
-            defaultFilter.click();
-        }
-
-        // Simple lightbox effect
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImage = lightbox.querySelector('img');
-        const lightboxClose = document.getElementById('lightbox-close');
-
-        portfolioItems.forEach(function (item) {
-            item.addEventListener('click', function () {
-                const img = this.querySelector('img');
-                if (!img) return;
-                lightboxImage.src = img.src;
-                lightbox.classList.remove('hidden');
-            });
-        });
-
-        function closeLightbox() {
-            lightbox.classList.add('hidden');
-            lightboxImage.src = '';
-        }
-
-        lightbox.addEventListener('click', function (event) {
-            if (event.target === lightbox || event.target === lightboxImage) {
-                closeLightbox();
-            }
-        });
-
-        lightboxClose.addEventListener('click', closeLightbox);
-        document.addEventListener('keydown', function (event) {
-            if (event.key === 'Escape' && !lightbox.classList.contains('hidden')) {
-                closeLightbox();
-            }
-        });
-    </script>
+    <script src="js/script.js"></script>
 </body>
 </html>
