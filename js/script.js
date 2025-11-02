@@ -10,6 +10,9 @@ let lenisRefreshListenerBound = false;
 let parallaxTweens = [];
 
 const parallaxVideos = Array.from(document.querySelectorAll('.parallax-container video'));
+const mobileViewportQuery = typeof window !== 'undefined' && typeof window.matchMedia === 'function'
+    ? window.matchMedia('(max-width: 767px)')
+    : null;
 const responsiveSrcCache = new Map();
 function normalizeManifestKey(path) {
     if (!path) return '';
@@ -174,7 +177,7 @@ function killParallaxTweens() {
 }
 
 function resetParallaxTransforms() {
-    document.querySelectorAll('.parallax-container [data-depth]').forEach(function (layer) {
+    document.querySelectorAll('[data-depth]').forEach(function (layer) {
         layer.style.transform = 'translate3d(0, 0, 0)';
     });
 }
@@ -196,43 +199,47 @@ function updateParallaxVideoPlayback() {
 }
 
 function initParallaxTweens() {
-    const layers = document.querySelectorAll('.parallax-container [data-depth]');
+    const isCompactViewport = mobileViewportQuery && mobileViewportQuery.matches;
+
+    const layers = document.querySelectorAll('[data-depth]');
     killParallaxTweens();
 
-    if (!layers.length || prefersReducedMotion.matches || typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+    if (isCompactViewport || !layers.length || prefersReducedMotion.matches || typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
         resetParallaxTransforms();
         return;
     }
 
     layers.forEach(function (layer) {
         const depth = parseFloat(layer.dataset.depth);
-        const intensity = Number.isFinite(depth) ? depth : 0.2;
-        const movement = gsap.utils.clamp(4, 60, intensity * 100);
-        const triggerTarget = layer.closest('section') || layer.parentElement || layer;
+        const intensity = Number.isFinite(depth) ? depth : 0.25;
+        const direction = intensity >= 0 ? 1 : -1;
+        const axis = layer.dataset.axis || 'y';
+        const multiplier = axis === 'x' ? 90 : 160;
+        const movement = gsap.utils.clamp(8, 120, Math.abs(intensity) * multiplier);
+        const triggerTarget = layer.closest('.parallax-section') || layer.closest('section') || layer.parentElement || layer;
+        const fromVars = axis === 'x' ? { xPercent: -movement * direction } : { yPercent: -movement * direction };
+        const toVars = axis === 'x'
+            ? { xPercent: movement * direction }
+            : { yPercent: movement * direction };
 
-        const tween = gsap.fromTo(layer,
-            { yPercent: -movement },
-            {
-                yPercent: movement,
-                ease: 'none',
-                overwrite: 'auto',
-                force3D: true,
-                scrollTrigger: {
-                    trigger: triggerTarget,
-                    start: 'top bottom',
-                    end: 'bottom top',
-                    scrub: true,
-                    invalidateOnRefresh: true
-                }
+        layer.style.willChange = 'transform';
+
+        const tween = gsap.fromTo(layer, fromVars, Object.assign(toVars, {
+            ease: 'none',
+            overwrite: 'auto',
+            force3D: true,
+            scrollTrigger: {
+                trigger: triggerTarget,
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: true,
+                invalidateOnRefresh: true
             }
-        );
+        }));
 
         parallaxTweens.push(tween);
     });
 
-    if (typeof ScrollTrigger !== 'undefined' && ScrollTrigger.refresh) {
-        ScrollTrigger.refresh();
-    }
 }
 
 function startLenis() {
@@ -330,6 +337,9 @@ function applyMotionPreferences() {
     startLenis();
     initParallaxTweens();
     updateParallaxVideoPlayback();
+    if (typeof ScrollTrigger !== 'undefined' && ScrollTrigger.refresh) {
+        ScrollTrigger.refresh();
+    }
 }
 
 applyMotionPreferences();
@@ -347,6 +357,9 @@ const debouncedRefresh = debounce(function () {
     if (typeof ScrollTrigger !== 'undefined' && ScrollTrigger.refresh) {
         ScrollTrigger.refresh();
     }
+    if (!prefersReducedMotion.matches) {
+        initParallaxTweens();
+    }
 }, 180);
 
 window.addEventListener('resize', debouncedRefresh, { passive: true });
@@ -356,6 +369,12 @@ window.addEventListener('load', function () {
         applyMotionPreferences();
     }
 });
+
+if (mobileViewportQuery && typeof mobileViewportQuery.addEventListener === 'function') {
+    mobileViewportQuery.addEventListener('change', applyMotionPreferences);
+} else if (mobileViewportQuery && typeof mobileViewportQuery.addListener === 'function') {
+    mobileViewportQuery.addListener(applyMotionPreferences);
+}
 
 // Simple lightbox effect
 const lightbox = document.getElementById('lightbox');
