@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gene Mattingly Photography | Texas Event, Portrait & Automotive Photographer</title>
-    <meta name=\"description\" content=\"Browse Gene Mattingly�s cinematic photography portfolio featuring Texas-based senior portraits, automotive sessions, birthday celebrations, and baby showers. Book today for bold storytelling imagery.\">
+    <meta name="description" content="Browse Gene Mattingly's cinematic photography portfolio featuring Texas-based senior portraits, automotive sessions, birthday celebrations, and baby showers. Book today for bold storytelling imagery.">
     <meta name="author" content="Gene Mattingly">
     <meta name="keywords" content="Gene Mattingly, Texas photographer, automotive photography, senior portraits, event photographer, baby shower photography, birthday party photography">
     <meta property="og:type" content="website">
@@ -56,8 +56,20 @@
     <header class="fixed top-0 inset-x-0 z-30 bg-black/80 backdrop-blur border-b border-white/10">
         <nav class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
             <a href="#hero" class="flex items-center gap-3">
-                <img src="images/branding/gmlogoregular.png" alt="Gene Mattingly Photography" class="h-10 w-auto hidden md:block">
-                <img src="images/branding/gmlogoinverted.png" alt="Gene Mattingly Photography" class="h-8 w-auto md:hidden">
+                <img
+                    src="images/branding/gmlogoregular.png"
+                    srcset="images/branding/gmlogoregular-480w.png 480w, images/branding/gmlogoregular-768w.png 768w, images/branding/gmlogoregular.png 938w"
+                    sizes="(min-width: 768px) 160px, 140px"
+                    alt="Gene Mattingly Photography"
+                    class="h-10 w-auto hidden md:block"
+                    decoding="async">
+                <img
+                    src="images/branding/gmlogoinverted.png"
+                    srcset="images/branding/gmlogoinverted-480w.png 480w, images/branding/gmlogoinverted-768w.png 768w, images/branding/gmlogoinverted.png 938w"
+                    sizes="(max-width: 767px) 128px, 64px"
+                    alt="Gene Mattingly Photography"
+                    class="h-8 w-auto md:hidden"
+                    decoding="async">
             </a>
             <div class="flex items-center gap-6 text-xs md:text-sm uppercase">
                 <a href="#hero" class="hover:text-red-600 transition-colors">Home</a>
@@ -70,10 +82,18 @@
     </header>
 
     <main class="pt-24">
-        <section id="hero" class="relative min-h-screen flex items-center justify-center text-center fade-section">
-            <div class="absolute inset-0 -z-10 bg-cover bg-center md:bg-fixed" style="background-image: url('images/hero.jpg');"></div>
-            <div class="absolute inset-0 -z-10 bg-black/70"></div>
-            <div class="max-w-3xl mx-auto px-6 space-y-6">
+        <section id="hero" class="relative overflow-hidden min-h-screen flex items-center justify-center text-center fade-section">
+            <div class="parallax-container" aria-hidden="true">
+                <div class="parallax-layer opacity-90" data-depth="0.12" style="background-image: url('images/hero.jpg');">
+                    <video class="parallax-video" autoplay loop muted playsinline webkit-playsinline preload="auto" poster="images/hero.jpg">
+                        <source src="video/hero-loop.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="parallax-layer bg-gradient-to-b from-black/85 via-black/60 to-black/90 opacity-100" data-depth="0.08"></div>
+                <div class="parallax-layer mix-blend-screen opacity-25" data-depth="0.28" style="background: radial-gradient(ellipse at top, rgba(239,68,68,0.45), transparent 70%), radial-gradient(ellipse at 80% 70%, rgba(255,255,255,0.25), transparent 75%);"></div>
+            </div>
+            <div class="absolute inset-0 -z-10 bg-black/40"></div>
+            <div class="relative max-w-3xl mx-auto px-6 space-y-6">
                 <p class="text-sm uppercase tracking-[0.4em] text-red-600">Captured Moments</p>
                 <h1 class="text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight">GENE MATTINGLY PHOTOGRAPHY</h1>
                 <p class="text-lg md:text-xl text-white/80">Event &amp; Portrait Photographer &mdash; Texas</p>
@@ -89,12 +109,29 @@
             </a>
         </section>
 
-        <section id="about" class="bg-black">
-            <div class="max-w-6xl mx-auto px-6 py-24 fade-section">
+        <section id="about" class="relative overflow-hidden bg-black">
+            <div class="parallax-container" aria-hidden="true">
+                <div class="parallax-layer opacity-80" data-depth="0.1" style="background-image: url('images/about.jpg');">
+                    <video class="parallax-video" autoplay loop muted playsinline webkit-playsinline preload="auto" poster="images/about.jpg">
+                        <source src="video/about-loop.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="parallax-layer bg-gradient-to-r from-black/85 via-black/60 to-black/90 opacity-100" data-depth="0.16"></div>
+                <div class="parallax-layer mix-blend-lighten opacity-20" data-depth="0.26" style="background: radial-gradient(circle at 20% 30%, rgba(248,113,113,0.28), transparent 60%);"></div>
+            </div>
+            <div class="absolute inset-0 -z-10 bg-black/65"></div>
+            <div class="relative max-w-6xl mx-auto px-6 py-24 fade-section">
                 <div class="grid gap-12 md:grid-cols-2 md:items-center">
                     <div class="relative">
                         <div class="absolute -top-6 -left-6 h-24 w-24 border border-red-700/60"></div>
-                        <img src="images/gene_headshot.jpg" alt="Gene Mattingly portrait" class="relative z-10 w-full rounded-md border border-white/10 shadow-lg shadow-red-900/30">
+                        <img
+                            src="images/gene_headshot.jpg"
+                            srcset="images/gene_headshot-480w.jpg 480w, images/gene_headshot-768w.jpg 768w, images/gene_headshot-1280w.jpg 1280w, images/gene_headshot-1920w.jpg 1920w, images/gene_headshot.jpg 6626w"
+                            sizes="(min-width: 1024px) 42vw, (min-width: 768px) 48vw, 90vw"
+                            alt="Gene Mattingly portrait"
+                            class="relative z-10 w-full rounded-md border border-white/10 shadow-lg shadow-red-900/30"
+                            loading="lazy"
+                            decoding="async">
                     </div>
                     <div class="space-y-6">
                         <div class="h-1 w-16 bg-red-700"></div>
@@ -106,97 +143,180 @@
             </div>
         </section>
 
-        <section id="portfolio" class="bg-black py-24 fade-section">
-            <div class="max-w-6xl mx-auto px-6 space-y-12">
-                <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-                    <div>
-                        <p class="text-sm uppercase tracking-[0.35em] text-red-600">Portfolio</p>
-                        <h2 class="text-3xl md:text-4xl font-semibold mt-2">Featured Collections</h2>
-                    </div>
-                    <div class="relative">
-                        <span class="pointer-events-none absolute inset-y-0 -left-6 w-24 bg-red-700/20 blur-3xl opacity-60"></span>
-                        <div class="portfolio-filter-tray relative flex gap-2 overflow-x-auto no-scrollbar px-2 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur">
-                            <button class="portfolio-filter filter-chip" data-filter="all"><span>All</span></button>
-                            <button class="portfolio-filter filter-chip" data-filter="creative"><span>Creative</span></button>
-                            <button class="portfolio-filter filter-chip" data-filter="automotive"><span>Autos</span></button>
-                            <button class="portfolio-filter filter-chip" data-filter="sports"><span>Sports</span></button>
-                            <button class="portfolio-filter filter-chip" data-filter="tayla_graduation"><span>Tayla &mdash; Senior</span></button>
-                            <button class="portfolio-filter filter-chip" data-filter="tomey_babyshower"><span>Tomey &mdash; Baby Shower</span></button>
-                            <button class="portfolio-filter filter-chip" data-filter="kathy_birthday"><span>Kathy &mdash; Birthday</span></button>
-                        </div>
-                    </div>
+        <section id="portfolio" class="relative overflow-hidden bg-black py-24 fade-section">
+            <div class="parallax-container" aria-hidden="true">
+                <div class="parallax-layer opacity-85" data-depth="0.14" style="background-image: url('images/creative1.jpg');">
+                    <video class="parallax-video" autoplay loop muted playsinline webkit-playsinline preload="auto" poster="images/creative1.jpg">
+                        <source src="video/portfolio-loop.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="parallax-layer bg-gradient-to-b from-black/85 via-black/55 to-black/90 opacity-100" data-depth="0.1"></div>
+                <div class="parallax-layer mix-blend-screen opacity-20" data-depth="0.24" style="background: radial-gradient(circle at 75% 25%, rgba(239,68,68,0.32), transparent 65%), radial-gradient(circle at 15% 60%, rgba(255,255,255,0.2), transparent 70%);"></div>
+            </div>
+            <div class="absolute inset-0 -z-10 bg-black/40"></div>
+            <div class="relative max-w-6xl mx-auto px-6 space-y-12">
+                <div class="space-y-2 text-center md:text-left">
+                    <p class="text-sm uppercase tracking-[0.35em] text-red-600">Portfolio</p>
+                    <h2 class="text-3xl md:text-4xl font-semibold mt-2">Featured Collections</h2>
+                    <p class="text-white/60 text-sm md:text-base max-w-2xl md:leading-relaxed md:text-white/70">
+                        Explore cinematic galleries across creative portraits, high-octane automotive sessions, milestone events, and more.
+                    </p>
                 </div>
 
                 <div class="portfolio-grid grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                     <figure class="portfolio-item relative overflow-hidden group cursor-pointer" data-category="creative" data-gallery="creative">
-                        <img src="images/creative/main.JPG" alt="Creative neon portrait" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                        <figcaption class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 text-xs uppercase tracking-wide">
-                            <span class="flex items-center gap-2">
+                        <img
+                            src="images/creative/main.JPG"
+                            srcset="images/creative/main-480w.JPG 480w, images/creative/main-768w.JPG 768w, images/creative/main-1280w.JPG 1280w, images/creative/main-1920w.JPG 1920w, images/creative/main.JPG 4672w"
+                            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                            alt="Creative neon portrait"
+                            data-lightbox-src="images/creative/main.JPG"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            loading="lazy"
+                            decoding="async">
+                        <figcaption class="absolute inset-x-0 bottom-0 flex flex-col gap-2 bg-gradient-to-t from-black/70 via-black/40 to-transparent p-4 text-xs uppercase tracking-wide text-white transition-opacity duration-300 opacity-90 group-hover:opacity-100">
+                            <span class="flex items-center gap-2 text-sm font-semibold">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="m3.75 7.5 1.5-1.5H9l1.5-1.5h3L15 6h3.75l1.5 1.5v10.5a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5z"/>
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 9.75a3.75 3.75 0 1 0 0 7.5 3.75 3.75 0 0 0 0-7.5Z"/>
                                 </svg>
                                 Creative
                             </span>
+                            <span class="inline-flex items-center gap-2 text-[0.65rem] font-medium tracking-[0.35em] text-white/70 group-hover:text-white">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5"/>
+                                </svg>
+                                View Gallery
+                            </span>
                         </figcaption>
                     </figure>
                     <figure class="portfolio-item relative overflow-hidden group cursor-pointer" data-category="automotive" data-gallery="automotive">
-                        <img src="images/automotive/main.jpeg" alt="Nighttime automotive portrait in downtown Dallas" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                        <figcaption class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 text-xs uppercase tracking-wide">
-                            <span class="flex items-center gap-2">
+                        <img
+                            src="images/automotive/main.jpeg"
+                            srcset="images/automotive/main-480w.jpeg 480w, images/automotive/main-768w.jpeg 768w, images/automotive/main-1280w.jpeg 1280w, images/automotive/main-1920w.jpeg 1920w, images/automotive/main.jpeg 4898w"
+                            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                            alt="Nighttime automotive portrait in downtown Dallas"
+                            data-lightbox-src="images/automotive/main.jpeg"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            loading="lazy"
+                            decoding="async">
+                        <figcaption class="absolute inset-x-0 bottom-0 flex flex-col gap-2 bg-gradient-to-t from-black/70 via-black/40 to-transparent p-4 text-xs uppercase tracking-wide text-white transition-opacity duration-300 opacity-90 group-hover:opacity-100">
+                            <span class="flex items-center gap-2 text-sm font-semibold">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="m3.75 7.5 1.5-1.5H9l1.5-1.5h3L15 6h3.75l1.5 1.5v10.5a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5z"/>
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 9.75a3.75 3.75 0 1 0 0 7.5 3.75 3.75 0 0 0 0-7.5Z"/>
                                 </svg>
                                 Autos
                             </span>
+                            <span class="inline-flex items-center gap-2 text-[0.65rem] font-medium tracking-[0.35em] text-white/70 group-hover:text-white">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5"/>
+                                </svg>
+                                View Gallery
+                            </span>
                         </figcaption>
                     </figure>
                     <figure class="portfolio-item relative overflow-hidden group cursor-pointer" data-category="sports" data-gallery="sports">
-                        <img src="images/sports/main.jpg" alt="Sprinter exploding off the blocks" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                        <figcaption class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 text-xs uppercase tracking-wide">
-                            <span class="flex items-center gap-2">
+                        <img
+                            src="images/sports/main.jpg"
+                            srcset="images/sports/main-480w.jpg 480w, images/sports/main-768w.jpg 768w, images/sports/main-1280w.jpg 1280w, images/sports/main-1920w.jpg 1920w, images/sports/main.jpg 2965w"
+                            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                            alt="Sprinter exploding off the blocks"
+                            data-lightbox-src="images/sports/main.jpg"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            loading="lazy"
+                            decoding="async">
+                        <figcaption class="absolute inset-x-0 bottom-0 flex flex-col gap-2 bg-gradient-to-t from-black/70 via-black/40 to-transparent p-4 text-xs uppercase tracking-wide text-white transition-opacity duration-300 opacity-90 group-hover:opacity-100">
+                            <span class="flex items-center gap-2 text-sm font-semibold">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="m3.75 7.5 1.5-1.5H9l1.5-1.5h3L15 6h3.75l1.5 1.5v10.5a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5z"/>
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 9.75a3.75 3.75 0 1 0 0 7.5 3.75 3.75 0 0 0 0-7.5Z"/>
                                 </svg>
                                 Sports
                             </span>
+                            <span class="inline-flex items-center gap-2 text-[0.65rem] font-medium tracking-[0.35em] text-white/70 group-hover:text-white">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5"/>
+                                </svg>
+                                View Gallery
+                            </span>
                         </figcaption>
                     </figure>
                     <figure class="portfolio-item relative overflow-hidden group cursor-pointer" data-category="tayla_graduation" data-gallery="tayla_graduation">
-                        <img src="images/tayla_graduation/main.jpg" alt="Tayla senior portrait laughing in downtown Fort Worth" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                        <figcaption class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 text-xs uppercase tracking-wide">
-                            <span class="flex items-center gap-2">
+                        <img
+                            src="images/tayla_graduation/main.jpg"
+                            srcset="images/tayla_graduation/main-480w.jpg 480w, images/tayla_graduation/main-768w.jpg 768w, images/tayla_graduation/main-1280w.jpg 1280w, images/tayla_graduation/main-1920w.jpg 1920w, images/tayla_graduation/main.jpg 7008w"
+                            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                            alt="Tayla senior portrait laughing in downtown Fort Worth"
+                            data-lightbox-src="images/tayla_graduation/main.jpg"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            loading="lazy"
+                            decoding="async">
+                        <figcaption class="absolute inset-x-0 bottom-0 flex flex-col gap-2 bg-gradient-to-t from-black/70 via-black/40 to-transparent p-4 text-xs uppercase tracking-wide text-white transition-opacity duration-300 opacity-90 group-hover:opacity-100">
+                            <span class="flex items-center gap-2 text-sm font-semibold">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="m3.75 7.5 1.5-1.5H9l1.5-1.5h3L15 6h3.75l1.5 1.5v10.5a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5z"/>
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 9.75a3.75 3.75 0 1 0 0 7.5 3.75 3.75 0 0 0 0-7.5Z"/>
                                 </svg>
                                 Tayla &mdash; Senior
                             </span>
+                            <span class="inline-flex items-center gap-2 text-[0.65rem] font-medium tracking-[0.35em] text-white/70 group-hover:text-white">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5"/>
+                                </svg>
+                                View Gallery
+                            </span>
                         </figcaption>
                     </figure>
                     <figure class="portfolio-item relative overflow-hidden group cursor-pointer" data-category="tomey_babyshower" data-gallery="tomey_babyshower">
-                        <img src="images/tomey_babyshower/main.jpg" alt="Tomey baby shower laughter" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                        <figcaption class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 text-xs uppercase tracking-wide">
-                            <span class="flex items-center gap-2">
+                        <img
+                            src="images/tomey_babyshower/main.jpg"
+                            srcset="images/tomey_babyshower/main-480w.jpg 480w, images/tomey_babyshower/main-768w.jpg 768w, images/tomey_babyshower/main-1280w.jpg 1280w, images/tomey_babyshower/main-1920w.jpg 1920w, images/tomey_babyshower/main.jpg 2307w"
+                            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                            alt="Tomey baby shower laughter"
+                            data-lightbox-src="images/tomey_babyshower/main.jpg"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            loading="lazy"
+                            decoding="async">
+                        <figcaption class="absolute inset-x-0 bottom-0 flex flex-col gap-2 bg-gradient-to-t from-black/70 via-black/40 to-transparent p-4 text-xs uppercase tracking-wide text-white transition-opacity duration-300 opacity-90 group-hover:opacity-100">
+                            <span class="flex items-center gap-2 text-sm font-semibold">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="m3.75 7.5 1.5-1.5H9l1.5-1.5h3L15 6h3.75l1.5 1.5v10.5a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5z"/>
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 9.75a3.75 3.75 0 1 0 0 7.5 3.75 3.75 0 0 0 0-7.5Z"/>
                                 </svg>
                                 Tomey &mdash; Baby Shower
                             </span>
+                            <span class="inline-flex items-center gap-2 text-[0.65rem] font-medium tracking-[0.35em] text-white/70 group-hover:text-white">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5"/>
+                                </svg>
+                                View Gallery
+                            </span>
                         </figcaption>
                     </figure>
                     <figure class="portfolio-item relative overflow-hidden group cursor-pointer" data-category="kathy_birthday" data-gallery="kathy_birthday">
-                        <img src="images/kathy_birthday/main.jpg" alt="Kathy birthday party celebration" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                        <figcaption class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 text-xs uppercase tracking-wide">
-                            <span class="flex items-center gap-2">
+                        <img
+                            src="images/kathy_birthday/main.jpg"
+                            srcset="images/kathy_birthday/main-480w.jpg 480w, images/kathy_birthday/main-768w.jpg 768w, images/kathy_birthday/main-1280w.jpg 1280w, images/kathy_birthday/main-1920w.jpg 1920w, images/kathy_birthday/main.jpg 7008w"
+                            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                            alt="Kathy birthday party celebration"
+                            data-lightbox-src="images/kathy_birthday/main.jpg"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            loading="lazy"
+                            decoding="async">
+                        <figcaption class="absolute inset-x-0 bottom-0 flex flex-col gap-2 bg-gradient-to-t from-black/70 via-black/40 to-transparent p-4 text-xs uppercase tracking-wide text-white transition-opacity duration-300 opacity-90 group-hover:opacity-100">
+                            <span class="flex items-center gap-2 text-sm font-semibold">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="m3.75 7.5 1.5-1.5H9l1.5-1.5h3L15 6h3.75l1.5 1.5v10.5a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5z"/>
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 9.75a3.75 3.75 0 1 0 0 7.5 3.75 3.75 0 0 0 0-7.5Z"/>
                                 </svg>
                                 Kathy &mdash; Birthday
+                            </span>
+                            <span class="inline-flex items-center gap-2 text-[0.65rem] font-medium tracking-[0.35em] text-white/70 group-hover:text-white">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5"/>
+                                </svg>
+                                View Gallery
                             </span>
                         </figcaption>
                     </figure>
@@ -204,8 +324,18 @@
             </div>
         </section>
 
-        <section id="pricing" class="bg-black py-24 fade-section">
-            <div class="max-w-5xl mx-auto px-6 space-y-16">
+        <section id="pricing" class="relative overflow-hidden bg-black py-24 fade-section">
+            <div class="parallax-container" aria-hidden="true">
+                <div class="parallax-layer opacity-85" data-depth="0.12" style="background-image: url('images/event1.jpg');">
+                    <video class="parallax-video" autoplay loop muted playsinline webkit-playsinline preload="auto" poster="images/event1.jpg">
+                        <source src="video/pricing-loop.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="parallax-layer bg-gradient-to-r from-black/85 via-black/55 to-black/90 opacity-100" data-depth="0.09"></div>
+                <div class="parallax-layer mix-blend-screen opacity-20" data-depth="0.22" style="background: radial-gradient(circle at 60% 30%, rgba(239,68,68,0.32), transparent 65%);"></div>
+            </div>
+            <div class="absolute inset-0 -z-10 bg-black/40"></div>
+            <div class="relative max-w-5xl mx-auto px-6 space-y-16">
                 <div class="space-y-4 text-center">
                     <p class="text-sm uppercase tracking-[0.35em] text-red-600">Investment</p>
                     <h2 class="text-3xl md:text-4xl font-semibold">Signature Services</h2>
@@ -267,12 +397,22 @@
             </div>
         </section>
 
-        <section id="contact" class="py-24 bg-black">
-            <div class="max-w-4xl mx-auto px-6 fade-section">
+        <section id="contact" class="relative overflow-hidden py-24 bg-black">
+            <div class="parallax-container" aria-hidden="true">
+                <div class="parallax-layer opacity-85" data-depth="0.14" style="background-image: url('images/creative2.jpg');">
+                    <video class="parallax-video" autoplay loop muted playsinline webkit-playsinline preload="auto" poster="images/creative2.jpg">
+                        <source src="video/contact-loop.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="parallax-layer bg-gradient-to-b from-black/85 via-black/55 to-black/90 opacity-100" data-depth="0.1"></div>
+                <div class="parallax-layer mix-blend-screen opacity-20" data-depth="0.26" style="background: radial-gradient(circle at 35% 30%, rgba(239,68,68,0.32), transparent 60%), radial-gradient(circle at 80% 80%, rgba(255,255,255,0.18), transparent 65%);"></div>
+            </div>
+            <div class="absolute inset-0 -z-10 bg-black/70"></div>
+            <div class="relative max-w-4xl mx-auto px-6 fade-section">
                 <div class="bg-black border border-red-700/50 p-10 space-y-10">
                     <div>
                         <p class="text-sm uppercase tracking-[0.35em] text-red-600">Connect</p>
-<h2 class="text-3xl md:text-4xl font-semibold mt-2">Let's Capture Your Story</h2>
+                        <h2 class="text-3xl md:text-4xl font-semibold mt-2">Let's Capture Your Story</h2>
                     </div>
                     <div class="space-y-6 text-white/70 leading-relaxed">
                         <p>Ready to collaborate? Share the details of your event, portrait session, or creative concept and Gene will follow up with availability and next steps.</p>
@@ -307,7 +447,14 @@
 
     <footer class="border-t border-white/10 bg-black py-6 text-center text-xs tracking-[0.4em] uppercase space-y-3">
         <div class="flex items-center justify-center">
-            <img src="images/branding/gmlogoinverted.png" alt="Gene Mattingly Photography logo" class="h-10 w-auto">
+            <img
+                src="images/branding/gmlogoinverted.png"
+                srcset="images/branding/gmlogoinverted-480w.png 480w, images/branding/gmlogoinverted-768w.png 768w, images/branding/gmlogoinverted.png 938w"
+                sizes="160px"
+                alt="Gene Mattingly Photography logo"
+                class="h-10 w-auto"
+                loading="lazy"
+                decoding="async">
         </div>
         <div>&copy; 2025 Gene Mattingly Photography</div>
     </footer>
@@ -321,7 +468,16 @@
                 </svg>
             </button>
             <div class="max-w-5xl w-full flex flex-col items-center gap-4">
-                <img id="gallery-overlay-image" src="" alt="" class="w-full max-h-[70vh] object-contain rounded border border-white/10 bg-black" data-lightbox-trigger>
+                <img
+                    id="gallery-overlay-image"
+                    src=""
+                    srcset=""
+                    sizes="min(100vw, 1200px)"
+                    alt=""
+                    class="w-full max-h-[70vh] object-contain rounded border border-white/10 bg-black"
+                    data-lightbox-trigger
+                    loading="lazy"
+                    decoding="async">
                 <div class="flex items-center gap-3 text-xs uppercase tracking-wide text-white/80">
                     <span id="gallery-overlay-label"></span>
                     <span class="text-white/50" id="gallery-overlay-indicator"></span>
@@ -337,9 +493,21 @@
 
     <div id="lightbox" class="hidden fixed inset-0 z-[70] flex items-center justify-center">
         <button id="lightbox-close" class="absolute top-6 right-6 text-white/70 hover:text-red-600 transition-colors text-3xl" aria-label="Close">&times;</button>
-        <img src="" alt="Expanded portfolio image" class="rounded shadow-lg shadow-black/90 border border-white/10">
+        <img
+            src=""
+            srcset=""
+            sizes="min(100vw, 1200px)"
+            alt="Expanded portfolio image"
+            class="rounded shadow-lg shadow-black/90 border border-white/10"
+            loading="lazy"
+            decoding="async">
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.4/dist/gsap.min.js" integrity="sha384-SvxBU96d7ONBd3urozzIOcCVbJlwY9X5+GSiKFo77ea402919FyUo+cPvzJ5ULG0" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.4/dist/ScrollTrigger.min.js" integrity="sha384-8RwUsYfcHN1zf+hXVvT+2WoKgD3IcawifeM1XK0jS0q4JJmRONWdJfzglv6bmSOR" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.6/bundled/lenis.min.js" crossorigin="anonymous"></script>
+    <script src="js/responsive-manifest.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
+

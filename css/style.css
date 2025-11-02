@@ -1,8 +1,21 @@
+html {
+    scroll-behavior: auto;
+}
+
+/* Lenis-friendly scroll resets */
+html.lenis-enabled {
+    height: auto;
+}
+
+html.lenis-enabled body {
+    min-height: 100%;
+    overscroll-behavior: none;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     background: #000;
     color: #fff;
-    scroll-behavior: smooth;
 }
 
 /* Fade-up animation support */
@@ -37,6 +50,51 @@ body {
 
 .no-scrollbar::-webkit-scrollbar {
     display: none;
+}
+
+.parallax-container {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: -40;
+}
+
+.parallax-layer {
+    position: absolute;
+    inset: -22vh -12vw;
+    z-index: -30;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    transform: translate3d(0, 0, 0);
+    will-change: transform;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.parallax-layer video,
+.parallax-layer img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(1.1);
+    pointer-events: none;
+    transform: translateZ(0);
+}
+
+@media (max-width: 768px) {
+    .parallax-layer {
+        inset: -18vh -8vw;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .parallax-layer {
+        transform: none !important;
+    }
 }
 
 .filter-chip {
