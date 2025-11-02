@@ -11,29 +11,6 @@ let parallaxTweens = [];
 
 const parallaxVideos = Array.from(document.querySelectorAll('.parallax-container video'));
 const responsiveSrcCache = new Map();
-const splashScreen = document.getElementById('splash-screen');
-if (splashScreen) {
-    const bodyElement = document.body;
-    const dismissSplash = function () {
-        if (splashScreen.classList.contains('is-hidden')) {
-            return;
-        }
-        splashScreen.classList.add('is-hidden');
-        if (bodyElement) {
-            bodyElement.classList.remove('splash-active');
-        }
-        window.setTimeout(function () {
-            if (splashScreen && splashScreen.parentNode) {
-                splashScreen.parentNode.removeChild(splashScreen);
-            }
-        }, 2300);
-    };
-    window.addEventListener('load', function () {
-        const delay = prefersReducedMotion && prefersReducedMotion.matches ? 1400 : 2200;
-        window.setTimeout(dismissSplash, delay);
-    });
-    window.setTimeout(dismissSplash, 7500);
-}
 function normalizeManifestKey(path) {
     if (!path) return '';
     return path.replace(/^[./\\]+/, '');

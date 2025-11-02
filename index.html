@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gene Mattingly Photo &amp; Video | Texas Event, Portrait &amp; Automotive Photographer &amp; Videographer</title>
     <meta name="description" content="Browse Gene Mattingly's cinematic photo and video portfolio featuring Texas-based senior portraits, automotive sessions, birthday celebrations, and baby showers. Book today for bold storytelling imagery and films.">
-    <meta name="author" content="Gene Mattingly">
+    <meta name="author" content="Gene Mattingly">␊
     <meta name="keywords" content="Gene Mattingly, Texas photographer, Texas videographer, automotive photography, automotive videography, senior portraits, event photographer, event videographer, baby shower photography, birthday party photography, birthday party videography">
-    <meta property="og:type" content="website">
+    <meta property="og:type" content="website">␊
     <meta property="og:title" content="Gene Mattingly Photo &amp; Video | Texas Event, Portrait &amp; Automotive Photographer &amp; Videographer">
     <meta property="og:description" content="Cinematic photography and videography for seniors, automotive enthusiasts, birthdays, and baby showers across Texas. Explore featured collections and book your session.">
-    <meta property="og:url" content="https://genemattingly.github.io/">
-    <meta property="og:image" content="https://genemattingly.github.io/images/creative/main.JPG">
+    <meta property="og:url" content="https://genemattingly.github.io/">␊
+    <meta property="og:image" content="https://genemattingly.github.io/images/creative/main.JPG">␊
     <meta property="og:image:alt" content="Creative neon portrait by Gene Mattingly Photo &amp; Video">
-    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:card" content="summary_large_image">␊
     <meta name="twitter:title" content="Gene Mattingly Photo &amp; Video">
     <meta name="twitter:description" content="Texas-based photographer and videographer capturing seniors, autos, and milestone events with cinematic flair.">
     <meta name="twitter:image" content="https://genemattingly.github.io/images/creative/main.JPG">
@@ -43,80 +43,207 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        body.splash-active {
-            overflow: hidden;
-        }
-        .splash-screen {
-            position: fixed;
-            inset: 0;
+        .intro-splash {
+            position: relative;
+            min-height: 100vh;
+            padding: 8rem 1.5rem 5rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: radial-gradient(circle at 30% 20%, rgba(239, 68, 68, 0.2), rgba(0, 0, 0, 0.9) 45%), #000;
-            z-index: 9999;
-            transform: scale(1);
-            transition: opacity 2s ease, transform 4s ease, visibility 0s linear 2s;
+            overflow: hidden;
         }
-        .splash-screen.is-hidden {
-            opacity: 0;
-            visibility: hidden;
+
+        @media (min-width: 768px) {
+            .intro-splash {
+                padding: 9rem 3rem 6rem;
+            }
+        }
+
+        .intro-splash::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.96) 100%);
+            z-index: 1;
+        }
+
+        .intro-splash .parallax-container {
+            position: absolute;
+            inset: -12%;
             pointer-events: none;
-            transform: scale(10.0);
+            z-index: 0;
         }
-        .splash-inner {
+
+        .intro-splash .parallax-layer {
+            position: absolute;
+            inset: 0;
+            transform: translate3d(0, 0, 0);
+        }
+
+        .intro-gradient {
+            background: radial-gradient(circle at 18% 22%, rgba(239, 68, 68, 0.45), transparent 55%), radial-gradient(circle at 82% 28%, rgba(255, 255, 255, 0.18), transparent 60%), linear-gradient(140deg, rgba(15, 15, 15, 0.95), rgba(0, 0, 0, 0.65));
+            mix-blend-mode: screen;
+            opacity: 0.65;
+        }
+
+        .intro-texture {
+            background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.08) 0%, transparent 65%), radial-gradient(circle at 75% 80%, rgba(239, 68, 68, 0.35), transparent 70%);
+            filter: blur(2px);
+            opacity: 0.55;
+        }
+
+        .intro-image {
+            overflow: hidden;
+            opacity: 0.42;
+        }
+
+        .intro-image img {
+            width: 120%;
+            height: 120%;
+            object-fit: cover;
+            filter: saturate(1.1) contrast(1.08);
+        }
+
+        .intro-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            gap: 1.25rem;
-            text-align: center;
+            gap: 1.5rem;
+            max-width: 42rem;
             opacity: 0;
-            transform: translateY(20px) scale(0.95);
-            animation: splashIntro 1.2s ease-out forwards;
+            transform: translateY(30px);
+            animation: introReveal 1.6s ease-out 0.35s forwards;
         }
-        .splash-logo {
-            width: clamp(120px, 20vw, 220px);
-            filter: drop-shadow(0 0 12px rgba(239, 68, 68, 0.35));
-            animation: splashPulse 2.4s ease-in-out infinite alternate;
+
+        .intro-logo {
+            width: clamp(160px, 24vw, 260px);
+            margin: 0 auto;
+            filter: drop-shadow(0 0 14px rgba(239, 68, 68, 0.35));
+            animation: logoPulse 3.4s ease-in-out 0.5s infinite alternate;
         }
-        .splash-tagline {
+
+        .intro-tagline {
             font-size: 0.75rem;
-            letter-spacing: 0.45em;
+            letter-spacing: 0.5em;
             text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.72);
+            color: rgba(255, 255, 255, 0.68);
         }
-        @keyframes splashIntro {
+
+        .intro-actions {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .intro-cta,
+        .intro-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.85rem 1.8rem;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, opacity 0.25s ease;
+        }
+
+        .intro-cta {
+            border: 1px solid rgba(239, 68, 68, 0.85);
+            background-color: rgba(239, 68, 68, 0.08);
+        }
+
+        .intro-cta:hover {
+            transform: translateY(-2px);
+            background-color: rgba(239, 68, 68, 0.85);
+            color: #0f0f0f;
+        }
+
+        .intro-secondary {
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            color: rgba(255, 255, 255, 0.75);
+        }
+
+        .intro-secondary:hover {
+            transform: translateY(-2px);
+            border-color: rgba(239, 68, 68, 0.85);
+            color: rgba(239, 68, 68, 0.9);
+        }
+
+        .intro-scroll {
+            position: absolute;
+            bottom: 2.75rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.75rem;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.7);
+            z-index: 2;
+        }
+
+        .intro-scroll svg {
+            width: 1.75rem;
+            height: 1.75rem;
+            color: #ef4444;
+            animation: scrollBounce 1.4s ease-in-out infinite;
+        }
+
+        @keyframes introReveal {
             0% {
                 opacity: 0;
-                transform: translateY(20px) scale(0.92);
+                transform: translateY(30px);
             }
             60% {
                 opacity: 1;
-                transform: translateY(0) scale(1);
+                transform: translateY(0);
             }
             100% {
                 opacity: 1;
-                transform: translateY(0) scale(1);
+                transform: translateY(0);
             }
         }
-        @keyframes splashPulse {
+
+        @keyframes logoPulse {
             0% {
                 transform: scale(1);
                 filter: drop-shadow(0 0 12px rgba(239, 68, 68, 0.35));
             }
             100% {
                 transform: scale(1.05);
-                filter: drop-shadow(0 0 28px rgba(239, 68, 68, 0.5));
+                filter: drop-shadow(0 0 28px rgba(239, 68, 68, 0.55));
             }
         }
+
+        @keyframes scrollBounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(6px);
+            }
+        }
+
         @media (prefers-reduced-motion: reduce) {
-            .splash-inner {
+            .intro-content {
                 animation: none;
                 opacity: 1;
-                transform: translateY(0) scale(1);
+                transform: none;
             }
-            .splash-logo {
+
+            .intro-logo {
                 animation: none;
-                filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.3));
+            }
+
+            .intro-scroll svg {
+                animation: none;
             }
         }
 
@@ -245,33 +372,12 @@
             color: #0f0f0f;
         }
 
-        .scroll-cue {
-            position: absolute;
-            bottom: 2.5rem;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.75rem;
-            letter-spacing: 0.35em;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .scroll-cue svg {
-            width: 1.5rem;
-            height: 1.5rem;
-            color: #dc2626;
-        }
     </style>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'">
     <noscript>
         <style>
             body { overflow: auto !important; }
-            #splash-screen { display: none !important; }
         </style>
     </noscript>
     <noscript><link rel="stylesheet" href="css/style.css"></noscript>
@@ -304,22 +410,40 @@
         }
     </script>
 </head>
-<body class="antialiased bg-black splash-active">
-    <div id="splash-screen" class="splash-screen" role="presentation" aria-hidden="true">
-        <div class="splash-inner">
+<body>
+    <section id="intro" class="intro-splash">
+        <div class="parallax-container" aria-hidden="true">
+            <div class="parallax-layer intro-image" data-depth="0.18">
+                <img src="images/hero.jpg" alt="Behind the scenes capture by Gene Mattingly">
+            </div>
+            <div class="parallax-layer intro-gradient" data-depth="0.08"></div>
+            <div class="parallax-layer intro-texture" data-depth="0.28"></div>
+        </div>
+        <div class="intro-content">
             <img
                 src="images/branding/gmlogoregular.png"
                 srcset="images/branding/gmlogoregular-480w.png 480w, images/branding/gmlogoregular-768w.png 768w, images/branding/gmlogoregular.png 938w"
                 sizes="(min-width: 1024px) 220px, 180px"
-                alt=""
-                class="splash-logo"
+                alt="Gene Mattingly Photo &amp; Video logo"
+                class="intro-logo"
                 decoding="async">
-            <p class="splash-tagline">Gene Mattingly Photo &amp; Video</p>
+            <p class="intro-tagline">Gene Mattingly Photo &amp; Video</p>
+            <div class="intro-actions">
+                <a href="#portfolio" class="intro-cta">View Portfolio</a>
+                <a href="#contact" class="intro-secondary">Book A Session</a>
+            </div>
         </div>
-    </div>
+        <a href="#hero" class="intro-scroll" aria-label="Scroll to featured hero section">
+            <span>Scroll</span>
+            <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25 12 15.75l-7.5-7.5" />
+            </svg>
+        </a>
+    </section>
+
     <header class="site-header fixed top-0 inset-x-0 z-30 bg-black/80 backdrop-blur border-b border-white/10">
         <nav class="primary-nav max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-            <a href="#hero" class="flex items-center gap-3">
+            <a href="#intro" class="flex items-center gap-3">
                 <img
                     src="images/branding/gmlogoregular.png"
                     srcset="images/branding/gmlogoregular-480w.png 480w, images/branding/gmlogoregular-768w.png 768w, images/branding/gmlogoregular.png 938w"
@@ -336,7 +460,7 @@
                     decoding="async">
             </a>
             <div class="flex items-center gap-6 text-xs md:text-sm uppercase">
-                <a href="#hero" class="hover:text-red-600 transition-colors">Home</a>
+                <a href="#intro" class="hover:text-red-600 transition-colors">Home</a>
                 <a href="#about" class="hover:text-red-600 transition-colors">About</a>
                 <a href="#portfolio" class="hover:text-red-600 transition-colors">Portfolio</a>
                 <a href="#pricing" class="hover:text-red-600 transition-colors">Pricing</a>
@@ -366,12 +490,6 @@
                     <a href="#portfolio" class="hero-cta inline-flex items-center gap-2 px-6 py-3 border border-red-700 text-sm md:text-base uppercase tracking-wide hover:bg-red-700 transition-colors">View My Work</a>
                 </div>
             </div>
-            <a href="#about" class="scroll-cue absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-xs tracking-widest uppercase text-white/70">
-                <span class="animate-pulse text-white/60">Scroll</span>
-                <svg class="w-6 h-6 animate-bounce text-red-600" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25 12 15.75l-7.5-7.5" />
-                </svg>
-            </a>
         </section>
 
         <section id="about" class="relative overflow-hidden bg-black">
