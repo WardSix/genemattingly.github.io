@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gene Mattingly Photography</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #000;
+            color: #fff;
+            scroll-behavior: smooth;
+        }
+
+        /* Fade-up animation support */
+        .fade-section {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Lightbox overlay styles */
+        #lightbox {
+            background: rgba(0, 0, 0, 0.9);
+        }
+
+        #lightbox img {
+            max-height: 80vh;
+            max-width: 90vw;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <header class="fixed top-0 inset-x-0 z-30 bg-black/80 backdrop-blur border-b border-white/10">
+        <nav class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <span class="tracking-widest text-sm md:text-base">GENE MATTINGLY</span>
+            <div class="flex items-center gap-6 text-xs md:text-sm uppercase">
+                <a href="#hero" class="hover:text-red-600 transition-colors">Home</a>
+                <a href="#about" class="hover:text-red-600 transition-colors">About</a>
+                <a href="#portfolio" class="hover:text-red-600 transition-colors">Portfolio</a>
+                <a href="#contact" class="hover:text-red-600 transition-colors">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="pt-24">
+        <section id="hero" class="relative min-h-screen flex items-center justify-center text-center fade-section">
+            <div class="absolute inset-0 -z-10 bg-cover bg-center md:bg-fixed" style="background-image: url('https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1600&q=80');"></div>
+            <div class="absolute inset-0 -z-10 bg-black/70"></div>
+            <div class="max-w-3xl mx-auto px-6 space-y-6">
+                <p class="text-sm uppercase tracking-[0.4em] text-red-600">Captured Moments</p>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight">GENE MATTINGLY PHOTOGRAPHY</h1>
+                <p class="text-lg md:text-xl text-white/80">Event &amp; Portrait Photographer &mdash; Texas</p>
+                <div class="flex items-center justify-center gap-4 pt-4">
+                    <a href="#portfolio" class="inline-flex items-center gap-2 px-6 py-3 border border-red-700 text-sm md:text-base uppercase tracking-wide hover:bg-red-700 transition-colors">View My Work</a>
+                </div>
+            </div>
+            <a href="#about" class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-xs tracking-widest uppercase text-white/70">
+                <span class="animate-pulse text-white/60">Scroll</span>
+                <svg class="w-6 h-6 animate-bounce text-red-600" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25 12 15.75l-7.5-7.5" />
+                </svg>
+            </a>
+        </section>
+
+        <section id="about" class="max-w-6xl mx-auto px-6 py-24 fade-section">
+            <div class="grid gap-12 md:grid-cols-2 md:items-center">
+                <div class="relative">
+                    <div class="absolute -top-6 -left-6 h-24 w-24 border border-red-700/60"></div>
+                    <img src="https://images.unsplash.com/photo-1503341733015-7cc94d60d47b?auto=format&fit=crop&w=800&q=80" alt="Gene Mattingly portrait" class="relative z-10 w-full rounded-md border border-white/10 shadow-lg shadow-red-900/30">
+                </div>
+                <div class="space-y-6">
+                    <div class="h-1 w-16 bg-red-700"></div>
+                    <h2 class="text-3xl md:text-4xl font-semibold tracking-tight">About Gene</h2>
+                    <p class="text-white/70 leading-relaxed">Gene Mattingly is a Texas-based photographer with a passion for capturing the energy of events and the authenticity of portraits. His cinematic approach blends dramatic lighting with candid storytelling, creating images that feel both timeless and intensely present.</p>
+                    <p class="text-white/70 leading-relaxed">Whether documenting life&rsquo;s celebrations or crafting intimate portraits, Gene delivers a bespoke experience that prioritizes connection, comfort, and artistry.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio" class="bg-black py-24 fade-section">
+            <div class="max-w-6xl mx-auto px-6 space-y-12">
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                    <div>
+                        <p class="text-sm uppercase tracking-[0.35em] text-red-600">Portfolio</p>
+                        <h2 class="text-3xl md:text-4xl font-semibold mt-2">Featured Collections</h2>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <button class="portfolio-filter px-4 py-2 border border-white/20 text-xs uppercase tracking-wide hover:border-red-700 hover:text-red-500 transition-colors" data-filter="all">All</button>
+                        <button class="portfolio-filter px-4 py-2 border border-white/20 text-xs uppercase tracking-wide hover:border-red-700 hover:text-red-500 transition-colors" data-filter="events">Events</button>
+                        <button class="portfolio-filter px-4 py-2 border border-white/20 text-xs uppercase tracking-wide hover:border-red-700 hover:text-red-500 transition-colors" data-filter="portraits">Portraits</button>
+                        <button class="portfolio-filter px-4 py-2 border border-white/20 text-xs uppercase tracking-wide hover:border-red-700 hover:text-red-500 transition-colors" data-filter="creative">Creative</button>
+                    </div>
+                </div>
+                <div class="portfolio-grid grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                    <figure class="portfolio-item relative overflow-hidden group" data-category="events">
+                        <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=900&q=80" alt="Events" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <figcaption class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 text-xs uppercase tracking-wide">Events</figcaption>
+                    </figure>
+                    <figure class="portfolio-item relative overflow-hidden group" data-category="portraits">
+                        <img src="https://images.unsplash.com/photo-1465145498025-928c7a71cab9?auto=format&fit=crop&w=900&q=80" alt="Portraits" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <figcaption class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 text-xs uppercase tracking-wide">Portraits</figcaption>
+                    </figure>
+                    <figure class="portfolio-item relative overflow-hidden group" data-category="creative">
+                        <img src="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=900&q=80" alt="Creative" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <figcaption class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 text-xs uppercase tracking-wide">Creative</figcaption>
+                    </figure>
+                    <figure class="portfolio-item relative overflow-hidden group" data-category="events">
+                        <img src="https://images.unsplash.com/photo-1542317854-0d6ae4650c6b?auto=format&fit=crop&w=900&q=80" alt="Events" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <figcaption class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 text-xs uppercase tracking-wide">Events</figcaption>
+                    </figure>
+                    <figure class="portfolio-item relative overflow-hidden group" data-category="portraits">
+                        <img src="https://images.unsplash.com/photo-1475727946784-2890c8fdb9c1?auto=format&fit=crop&w=900&q=80" alt="Portraits" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <figcaption class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 text-xs uppercase tracking-wide">Portraits</figcaption>
+                    </figure>
+                    <figure class="portfolio-item relative overflow-hidden group" data-category="creative">
+                        <img src="https://images.unsplash.com/photo-1517142089942-ba376ce32a0b?auto=format&fit=crop&w=900&q=80" alt="Creative" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <figcaption class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 text-xs uppercase tracking-wide">Creative</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-24 fade-section">
+            <div class="max-w-4xl mx-auto px-6">
+                <div class="bg-black border border-red-700/50 p-10 space-y-10">
+                    <div>
+                        <p class="text-sm uppercase tracking-[0.35em] text-red-600">Connect</p>
+                        <h2 class="text-3xl md:text-4xl font-semibold mt-2">Let&rsquo;s Capture Your Story</h2>
+                    </div>
+                    <form class="grid gap-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <label class="space-y-2 text-sm uppercase tracking-wide text-white/70">
+                                Name
+                                <input type="text" name="name" placeholder="Your name" class="w-full bg-black border border-white/15 px-4 py-3 focus:border-red-600 focus:ring-0 transition-colors">
+                            </label>
+                            <label class="space-y-2 text-sm uppercase tracking-wide text-white/70">
+                                Email
+                                <input type="email" name="email" placeholder="Your email" class="w-full bg-black border border-white/15 px-4 py-3 focus:border-red-600 focus:ring-0 transition-colors">
+                            </label>
+                        </div>
+                        <label class="space-y-2 text-sm uppercase tracking-wide text-white/70">
+                            Message
+                            <textarea name="message" rows="5" placeholder="Tell me about your project" class="w-full bg-black border border-white/15 px-4 py-3 focus:border-red-600 focus:ring-0 transition-colors"></textarea>
+                        </label>
+                        <button type="submit" class="self-start px-6 py-3 border border-red-700 text-xs uppercase tracking-[0.3em] hover:bg-red-700 transition-colors">Send Message</button>
+                    </form>
+                    <div class="flex items-center gap-6">
+                        <a href="#" aria-label="Instagram" class="p-3 border border-white/15 hover:border-red-700 transition-colors">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                <rect x="3" y="3" width="18" height="18" rx="4" ry="4"></rect>
+                                <circle cx="12" cy="12" r="3.5"></circle>
+                                <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"></circle>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="Facebook" class="p-3 border border-white/15 hover:border-red-700 transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M22 12.07C22 6.475 17.523 2 11.93 2 6.337 2 1.86 6.475 1.86 12.07c0 4.958 3.657 9.074 8.438 9.878v-6.993H7.898v-2.885h2.4V9.845c0-2.372 1.414-3.68 3.577-3.68 1.036 0 2.122.185 2.122.185v2.335h-1.195c-1.178 0-1.545.731-1.545 1.48v1.777h2.627l-.42 2.885h-2.207v6.993C18.343 21.144 22 17.027 22 12.07Z"/>
+                            </svg>
+                        </a>
+                        <a href="mailto:hello@example.com" aria-label="Email" class="p-3 border border-white/15 hover:border-red-700 transition-colors">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75v10.5a2.25 2.25 0 002.25 2.25h15a2.25 2.25 0 002.25-2.25V6.75m-19.5 0L12 13.5l9.75-6.75m-19.5 0A2.25 2.25 0 015.25 4.5h13.5a2.25 2.25 0 012.25 2.25"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="border-t border-white/10 bg-black py-6 text-center text-xs tracking-[0.4em] uppercase">
+        &copy; 2025 Gene Mattingly Photography
+    </footer>
+
+    <div id="lightbox" class="hidden fixed inset-0 z-50 flex items-center justify-center">
+        <button id="lightbox-close" class="absolute top-6 right-6 text-white/70 hover:text-red-600 transition-colors text-3xl" aria-label="Close">&times;</button>
+        <img src="" alt="Expanded portfolio image" class="rounded shadow-lg shadow-black/90 border border-white/10">
+    </div>
+
+    <script>
+        // Smooth scroll for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+            anchor.addEventListener('click', function (event) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    event.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Fade-in on scroll using Intersection Observer
+        const observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.2 });
+
+        document.querySelectorAll('.fade-section').forEach(function (section) {
+            observer.observe(section);
+        });
+
+        // Portfolio filter buttons
+        const filterButtons = document.querySelectorAll('.portfolio-filter');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+        filterButtons.forEach(function (button) {
+            button.addEventListener('click', function () {
+                const filter = this.dataset.filter;
+
+                filterButtons.forEach(function (btn) { btn.classList.remove('border-red-700', 'text-red-500'); });
+                this.classList.add('border-red-700', 'text-red-500');
+
+                portfolioItems.forEach(function (item) {
+                    if (filter === 'all' || item.dataset.category === filter) {
+                        item.classList.remove('hidden');
+                        item.classList.add('block');
+                    } else {
+                        item.classList.add('hidden');
+                        item.classList.remove('block');
+                    }
+                });
+            });
+        });
+
+        // Activate "All" filter by default
+        const defaultFilter = document.querySelector('.portfolio-filter[data-filter="all"]');
+        if (defaultFilter) {
+            defaultFilter.click();
+        }
+
+        // Simple lightbox effect
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = lightbox.querySelector('img');
+        const lightboxClose = document.getElementById('lightbox-close');
+
+        portfolioItems.forEach(function (item) {
+            item.addEventListener('click', function () {
+                const img = this.querySelector('img');
+                if (!img) return;
+                lightboxImage.src = img.src;
+                lightbox.classList.remove('hidden');
+            });
+        });
+
+        function closeLightbox() {
+            lightbox.classList.add('hidden');
+            lightboxImage.src = '';
+        }
+
+        lightbox.addEventListener('click', function (event) {
+            if (event.target === lightbox || event.target === lightboxImage) {
+                closeLightbox();
+            }
+        });
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape' && !lightbox.classList.contains('hidden')) {
+                closeLightbox();
+            }
+        });
+    </script>
+</body>
+</html>
