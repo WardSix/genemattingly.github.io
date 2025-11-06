@@ -722,3 +722,108 @@ a {
         width: clamp(220px, 70vw, 360px);
     }
 }
+
+@media (max-width: 640px) {
+    body {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+
+    .section {
+        padding: clamp(3.5rem, 22vw, 5rem) clamp(1.25rem, 5vw, 1.75rem);
+    }
+
+    .hero-logo {
+        width: clamp(160px, 52vw, 220px);
+    }
+
+    .hero-logo__caption {
+        letter-spacing: 0.28em;
+        font-size: 0.78rem;
+    }
+
+    .cta-group {
+        flex-direction: column;
+        gap: 0.85rem;
+    }
+
+    .hero__cta,
+    .hero__cta--primary {
+        width: min(340px, 100%);
+        font-size: 0.72rem;
+        letter-spacing: 0.18em;
+        padding: 0.95rem 1.5rem;
+    }
+
+    .site-nav {
+        display: none;
+    }
+
+    .section__title {
+        font-size: clamp(2.1rem, 11vw, 2.6rem);
+        letter-spacing: 0.06em;
+    }
+
+    .section__body {
+        font-size: 1rem;
+        line-height: 1.8;
+    }
+
+    .section__inner--about {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .about-media img {
+        width: 100%;
+        height: auto;
+    }
+
+    .about-body {
+        text-align: center;
+        padding: 0 0.5rem;
+    }
+
+    .section__inner--carousel {
+        grid-template-columns: 1fr;
+    }
+
+    .carousel-copy {
+        text-align: center;
+    }
+
+    .carousel {
+        gap: 0.5rem;
+    }
+
+    .carousel__nav {
+        width: 40px;
+        height: 40px;
+        font-size: 1.3rem;
+    }
+
+    .carousel__stack {
+        min-height: clamp(260px, 70vw, 360px);
+    }
+
+    .carousel__card {
+        width: clamp(220px, 78vw, 300px);
+    }
+
+    .pricing-card {
+        padding: 1.65rem;
+    }
+
+    .pricing-card__rate {
+        font-size: clamp(1.7rem, 9vw, 2.2rem);
+    }
+
+    .contact-panel {
+        text-align: center;
+    }
+
+    .contact-panel__button {
+        width: min(340px, 100%);
+        margin: 0 auto;
+    }
+}
