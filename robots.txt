@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://genemattingly.github.io/sitemap.xml
+Sitemap: https://genemattingly.com/sitemap.xml
 
