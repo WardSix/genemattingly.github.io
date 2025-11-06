@@ -1,0 +1,25 @@
+{
+  "name": "genemattingly.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "convert-images": "node scripts/convert-images.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WardSix/genemattingly.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/WardSix/genemattingly.github.io/issues"
+  },
+  "homepage": "https://github.com/WardSix/genemattingly.github.io#readme",
+  "dependencies": {
+    "sharp": "^0.34.5"
+  }
+}
