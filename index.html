@@ -6,6 +6,7 @@
     <title>Gene Mattingly | Portfolio Refresh</title>
     <meta name="description" content="Gene Mattingly is rebuilding a parallax-driven portfolio experience. Explore the roadmap and get in touch to collaborate.">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://tally.so/widgets/embed.js" defer></script>
 </head>
 <body id="top">
     <div class="video-backdrop" aria-hidden="true">
@@ -31,9 +32,12 @@
                     <a href="#about">About</a>
                     <a href="#tomey-highlight">Highlights</a>
                     <a href="#pricing">Pricing</a>
-                    <a href="#portfolio">Contact</a>
+                    <a href="#contact">Contact</a>
                 </nav>
-                <a class="site-nav__cta" href="mailto:mattingly.gene@gmail.com">Book</a>
+                <div class="site-nav__actions">
+                    <a class="site-nav__phone" href="tel:2106108021">210.610.8021</a>
+                    <a class="site-nav__cta" href="mailto:mattingly.gene@gmail.com">Book</a>
+                </div>
             </div>
         </header>
         <section class="section section--hero" data-parallax="-0.12">
@@ -258,32 +262,17 @@
                         availability, and next steps within 24 hours.
                     </p>
                 </div>
-                <form class="contact-form" data-mailto-form>
-                    <div class="contact-form__row">
-                        <label for="contact-name">Name</label>
-                        <input id="contact-name" name="name" type="text" placeholder="Your name" required>
-                    </div>
-                    <div class="contact-form__row">
-                        <label for="contact-email">Email</label>
-                        <input id="contact-email" name="email" type="email" placeholder="you@email.com" required>
-                    </div>
-                    <div class="contact-form__row">
-                        <label for="contact-service">What are you planning?</label>
-                        <select id="contact-service" name="service" required>
-                            <option value="" disabled selected>Select a session type</option>
-                            <option value="Portrait or Senior">Portrait or Senior Session</option>
-                            <option value="Event Coverage">Event or Celebration Coverage</option>
-                            <option value="Film and Editorial">Film / Editorial Production</option>
-                            <option value="Other">Something else</option>
-                        </select>
-                    </div>
-                    <div class="contact-form__row">
-                        <label for="contact-message">Tell me more</label>
-                        <textarea id="contact-message" name="message" rows="4" placeholder="Date, vibe, must-have shots, etc." required></textarea>
-                    </div>
-                    <p class="contact-form__status" data-form-status hidden></p>
-                    <button class="contact-form__submit" type="submit">Send The Details</button>
-                </form>
+                <div class="contact-panel">
+                    <p>
+                        Prefer a guided brief? Launch the inquiry form, share a few details about your session or event, and I’ll reply within 24 hours with availability and a tailored plan.
+                    </p>
+                    <button class="contact-panel__button" type="button" data-tally-trigger>
+                        Launch Inquiry Form
+                    </button>
+                    <p class="contact-panel__note">
+                        Powered by Tally—opens a short pop-up form so nothing gets lost.
+                    </p>
+                </div>
             </div>
         </section>
 

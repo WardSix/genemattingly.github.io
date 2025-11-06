@@ -170,35 +170,25 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    var mailtoForms = Array.prototype.slice.call(document.querySelectorAll('[data-mailto-form]'));
-    mailtoForms.forEach(function (form) {
-        form.addEventListener('submit', function (event) {
-            event.preventDefault();
-            var formData = new FormData(form);
-            var name = (formData.get('name') || '').trim();
-            var email = (formData.get('email') || '').trim();
-            var service = formData.get('service') || 'General Inquiry';
-            var message = (formData.get('message') || '').trim();
-            if (!name || !email || !message) {
-                return;
+    var tallyTriggers = Array.prototype.slice.call(document.querySelectorAll('[data-tally-trigger]'));
+    if (tallyTriggers.length) {
+        var tallyFormId = 'b5VLA6';
+        function openTallyPopup() {
+            if (typeof window.Tally !== 'undefined' && typeof window.Tally.openPopup === 'function') {
+                window.Tally.openPopup(tallyFormId, {
+                    layout: 'modal',
+                    width: 720,
+                    hideTitle: false,
+                    overlay: true,
+                    autoClose: 0,
+                });
+            } else {
+                window.open('https://tally.so/r/' + tallyFormId, '_blank', 'noopener');
             }
+        }
 
-            var subject = 'Inquiry: ' + service + ' from ' + name;
-            var body = [
-                'Name: ' + name,
-                'Email: ' + email,
-                'Service: ' + service,
-                '',
-                message
-            ].join('\n');
-            var mailtoUrl = 'mailto:mattingly.gene@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-            window.location.href = mailtoUrl;
-
-            var statusNode = form.querySelector('[data-form-status]');
-            if (statusNode) {
-                statusNode.textContent = 'Opening your mail app so you can send the details...';
-                statusNode.hidden = false;
-            }
+        tallyTriggers.forEach(function (trigger) {
+            trigger.addEventListener('click', openTallyPopup);
         });
-    });
+    }
 });
