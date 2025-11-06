@@ -125,6 +125,7 @@ document.addEventListener('DOMContentLoaded', function () {
         var directionAttr = carousel.getAttribute('data-carousel-direction');
         var directionMultiplier = directionAttr === 'reverse' ? -1 : 1;
         var isMobileView = mobileMedia.matches;
+        var swipeDirectionMultiplier = directionAttr === 'reverse' ? -1 : 1;
         var swipeState = {
             active: false,
             startX: 0
@@ -204,9 +205,9 @@ document.addEventListener('DOMContentLoaded', function () {
             }
             var deltaX = touch.clientX - swipeState.startX;
             if (deltaX <= -swipeThreshold) {
-                setActiveCard(currentCardIndex + 1);
+                setActiveCard(currentCardIndex + (1 * swipeDirectionMultiplier));
             } else if (deltaX >= swipeThreshold) {
-                setActiveCard(currentCardIndex - 1);
+                setActiveCard(currentCardIndex - (1 * swipeDirectionMultiplier));
             }
             swipeState.active = false;
         }
