@@ -29,8 +29,11 @@ document.addEventListener('DOMContentLoaded', function () {
         requestUpdate();
     }
 
+    var backdrop = document.querySelector('.video-backdrop');
     var backdropVideo = document.querySelector('.video-backdrop__media');
-    if (backdropVideo) {
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var prefersStaticVideo = reduceMotion || window.matchMedia('(max-width: 640px)').matches;
+    if (backdropVideo && !prefersStaticVideo) {
         var playlist = [];
         var rawList = backdropVideo.getAttribute('data-playlist');
         if (rawList) {
@@ -66,6 +69,10 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         playIndex(0);
+    } else if (backdrop && backdropVideo) {
+        backdropVideo.removeAttribute('src');
+        backdropVideo.load();
+        backdrop.classList.add('is-static');
     }
 
     var lightbox = document.querySelector('[data-lightbox]');
