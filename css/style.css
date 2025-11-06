@@ -192,6 +192,18 @@ a {
     gap: clamp(2rem, 6vw, 3.5rem);
 }
 
+.section__inner--carousel-left {
+    grid-template-columns: minmax(320px, 0.95fr) minmax(320px, 1fr);
+    justify-items: stretch;
+    align-items: center;
+}
+
+.section__inner--carousel-left .carousel-copy {
+    position: relative;
+    z-index: 2;
+    margin-left: clamp(1.5rem, 5vw, 4rem);
+}
+
 .carousel-copy {
     display: grid;
     gap: 1rem;
@@ -367,6 +379,15 @@ a {
     background: rgba(255, 255, 255, 0.16);
 }
 
+.carousel--left {
+    justify-self: stretch;
+    margin-right: clamp(-8rem, -10vw, -4rem);
+}
+
+.carousel--left .carousel__stack {
+    margin-left: clamp(-2rem, -4vw, -0.5rem);
+}
+
 .carousel__stack {
     position: relative;
     min-height: clamp(320px, 38vw, 460px);
@@ -499,6 +520,20 @@ a {
         flex-direction: column;
     }
 
+    .section__inner--carousel-left {
+        justify-items: center;
+        grid-template-columns: 1fr;
+    }
+
+    .section__inner--carousel-left .carousel-copy {
+        margin-left: 0;
+    }
+
+    .carousel--left {
+        justify-self: center;
+        margin-right: 0;
+    }
+
     .carousel {
         grid-template-columns: 1fr;
     }
@@ -510,6 +545,7 @@ a {
 
     .carousel__stack {
         min-height: clamp(260px, 50vw, 360px);
+        margin-left: 0;
     }
 
     .carousel__card {

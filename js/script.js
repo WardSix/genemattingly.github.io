@@ -119,13 +119,15 @@ document.addEventListener('DOMContentLoaded', function () {
         var prevButton = carousel.querySelector('.carousel__nav--prev');
         var nextButton = carousel.querySelector('.carousel__nav--next');
         var currentCardIndex = 0;
+        var directionAttr = carousel.getAttribute('data-carousel-direction');
+        var directionMultiplier = directionAttr === 'reverse' ? -1 : 1;
 
         function setActiveCard(newIndex) {
             currentCardIndex = (newIndex + cards.length) % cards.length;
             cards.forEach(function (card, cardIndex) {
                 var offset = cardIndex - currentCardIndex;
-                var translateX = offset * 12;
-                var rotate = offset * 3;
+                var translateX = offset * 12 * directionMultiplier;
+                var rotate = offset * 3 * directionMultiplier;
                 var translateY = Math.abs(offset) * 4;
                 card.style.transform = 'translate(-50%, -50%) translateX(' + translateX + '%) translateY(' + translateY + 'px) rotate(' + rotate + 'deg)';
                 card.style.zIndex = String(cards.length - Math.abs(offset));
