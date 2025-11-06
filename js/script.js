@@ -166,9 +166,12 @@ document.addEventListener('DOMContentLoaded', function () {
             active: false,
             startX: 0,
             startY: 0,
-            vertical: false
+            vertical: false,
+            lockedDirection: null
         };
-        var swipeThreshold = 35;
+        var swipeThreshold = 32;
+        var directionLockThreshold = 12;
+        var diagonalForgivenessRatio = 1.35;
 
         function setActiveCard(newIndex) {
             currentCardIndex = (newIndex + cards.length) % cards.length;
@@ -232,6 +235,7 @@ document.addEventListener('DOMContentLoaded', function () {
             swipeState.startX = touch.clientX;
             swipeState.startY = touch.clientY;
             swipeState.vertical = false;
+            swipeState.lockedDirection = null;
         }
 
         function handleTouchMove(event) {
@@ -244,8 +248,25 @@ document.addEventListener('DOMContentLoaded', function () {
             }
             var deltaX = touch.clientX - swipeState.startX;
             var deltaY = touch.clientY - swipeState.startY;
-            if (Math.abs(deltaY) > Math.abs(deltaX) && Math.abs(deltaY) > 6) {
+            var absDeltaX = Math.abs(deltaX);
+            var absDeltaY = Math.abs(deltaY);
+
+            if (!swipeState.lockedDirection) {
+                if (absDeltaX < directionLockThreshold && absDeltaY < directionLockThreshold) {
+                    return;
+                }
+                if (absDeltaY > absDeltaX * diagonalForgivenessRatio) {
+                    swipeState.lockedDirection = 'vertical';
+                    swipeState.vertical = true;
+                    return;
+                }
+                swipeState.lockedDirection = 'horizontal';
+                return;
+            }
+
+            if (swipeState.lockedDirection === 'horizontal' && absDeltaY > absDeltaX * diagonalForgivenessRatio) {
                 swipeState.vertical = true;
+                swipeState.lockedDirection = 'vertical';
             }
         }
 
@@ -256,10 +277,12 @@ document.addEventListener('DOMContentLoaded', function () {
             var touch = event.changedTouches && event.changedTouches[0];
             if (!touch) {
                 swipeState.active = false;
+                swipeState.lockedDirection = null;
                 return;
             }
-             if (swipeState.vertical) {
+            if (swipeState.vertical) {
                 swipeState.active = false;
+                swipeState.lockedDirection = null;
                 return;
             }
             var deltaX = touch.clientX - swipeState.startX;
@@ -269,12 +292,20 @@ document.addEventListener('DOMContentLoaded', function () {
                 setActiveCard(currentCardIndex - (1 * swipeDirectionMultiplier));
             }
             swipeState.active = false;
+            swipeState.lockedDirection = null;
+        }
+
+        function handleTouchCancel() {
+            swipeState.active = false;
+            swipeState.vertical = false;
+            swipeState.lockedDirection = null;
         }
 
         if (stack) {
             stack.addEventListener('touchstart', handleTouchStart, { passive: true });
             stack.addEventListener('touchmove', handleTouchMove, { passive: true });
             stack.addEventListener('touchend', handleTouchEnd, { passive: true });
+            stack.addEventListener('touchcancel', handleTouchCancel, { passive: true });
         }
 
         function handleMediaChange() {
