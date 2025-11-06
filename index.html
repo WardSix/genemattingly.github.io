@@ -7,7 +7,7 @@
     <meta name="description" content="Gene Mattingly is rebuilding a parallax-driven portfolio experience. Explore the roadmap and get in touch to collaborate.">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body id="top">
     <div class="video-backdrop" aria-hidden="true">
         <video
             class="video-backdrop__media"
@@ -22,6 +22,19 @@
     </div>
 
     <div class="parallax-surface">
+        <header class="site-nav">
+            <div class="site-nav__inner">
+                <a class="site-nav__brand" href="#top" aria-label="Gene Mattingly home">
+                    Gene Mattingly
+                </a>
+                <nav class="site-nav__links" aria-label="Primary">
+                    <a href="#about">About</a>
+                    <a href="#tomey-highlight">Highlights</a>
+                    <a href="#portfolio">Contact</a>
+                </nav>
+                <a class="site-nav__cta" href="mailto:mattingly.gene@gmail.com">Book</a>
+            </div>
+        </header>
         <section class="section section--hero" data-parallax="-0.12">
             <div class="section__inner section__inner--hero">
                 <figure class="hero-logo" aria-labelledby="hero-logo-label">
@@ -43,17 +56,56 @@
                 </figure>
                 <div class="about-body">
                     <p class="section__eyebrow">About Gene</p>
-                    <h2 class="section__title">Portraits, seniors, and events with cinematic polish.</h2>
+                    <h2 class="section__title">Portraits &amp; events with cinematic care.</h2>
                     <p class="section__body">
-                        I work with families and milestone crews across Texas to craft images that feel alive long after the moment passes.
-                        From senior sessions that bring wardrobe, mood boards, and custom locations together, to intimate celebrations that deserve genuine coverage,
-                        every shoot puts connection and detail first.
+                        Every session starts with conversations about the people, the energy, and the memories you want to freeze in time. I mix editorial lighting with gently guided moments so families, seniors, and milestone crews feel grounded, seen, and free to let genuine emotion surface.
                     </p>
                     <ul class="list">
-                        <li>Senior portraits with collaborative styling, multi-look planning, and high-impact edits.</li>
-                        <li>Event coverage (birthdays, reunions, engagement parties) focused on candid storytelling and hero frames.</li>
-                        <li>Portrait offerings for individuals, teams, and creative commissions with add-on video reels.</li>
+                        <li>Portrait offerings for seniors, individuals, and creative teams with multi-look styling, retouching, and optional reels.</li>
+                        <li>Event coverage for reunions, milestones, and celebrations that balances candid storytelling with hero frames.</li>
                     </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="tomey-highlight" class="section section--carousel" data-parallax="-0.045">
+            <div class="section__inner section__inner--carousel">
+                <div class="carousel-copy">
+                    <p class="section__eyebrow">Portfolio Highlight</p>
+                    <h2 class="section__title">Tomey Baby Shower</h2>
+                    <p class="section__body">
+                        A joyful afternoon in San Antonio where soft florals, glowing light, and heartfelt toasts
+                        called for an intimate mix of candids and hero portraits. This mini carousel floats a few favorites;
+                        click any frame to open it up full screen.
+                    </p>
+                </div>
+                <div class="carousel" data-carousel>
+                    <button class="carousel__nav carousel__nav--prev" type="button" aria-label="Show previous photo set">
+                        <span aria-hidden="true">&lsaquo;</span>
+                    </button>
+                    <div class="carousel__stack">
+                        <button class="carousel__card" type="button" data-full="images/portfolio/tomey/DSC01750.jpg" aria-label="Preview DSC01750">
+                            <img src="images/portfolio/tomey/DSC01750.jpg" alt="Baby shower guests sharing a laugh near floral arrangements.">
+                        </button>
+                        <button class="carousel__card" type="button" data-full="images/portfolio/tomey/DSC01802.jpg" aria-label="Preview DSC01802">
+                            <img src="images/portfolio/tomey/DSC01802.jpg" alt="Table styling with peach arrangements and place cards.">
+                        </button>
+                        <button class="carousel__card" type="button" data-full="images/portfolio/tomey/DSC01804.jpg" aria-label="Preview DSC01804">
+                            <img src="images/portfolio/tomey/DSC01804.jpg" alt="Parents-to-be smiling during a toast.">
+                        </button>
+                        <button class="carousel__card" type="button" data-full="images/portfolio/tomey/DSC01853.jpg" aria-label="Preview DSC01853">
+                            <img src="images/portfolio/tomey/DSC01853.jpg" alt="Baby shower dessert table with custom signage.">
+                        </button>
+                        <button class="carousel__card" type="button" data-full="images/portfolio/tomey/DSC01919.jpg" aria-label="Preview DSC01919">
+                            <img src="images/portfolio/tomey/DSC01919.jpg" alt="Guests embracing in front of a backdrop.">
+                        </button>
+                        <button class="carousel__card" type="button" data-full="images/portfolio/tomey/DSC01929.jpg" aria-label="Preview DSC01929">
+                            <img src="images/portfolio/tomey/DSC01929.jpg" alt="Detail of personalized favors.">
+                        </button>
+                    </div>
+                    <button class="carousel__nav carousel__nav--next" type="button" aria-label="Show next photo set">
+                        <span aria-hidden="true">&rsaquo;</span>
+                    </button>
                 </div>
             </div>
         </section>
@@ -76,6 +128,11 @@
         <footer class="footer">
             <small>&copy; <span id="year"></span> Gene Mattingly. All rights reserved.</small>
         </footer>
+    </div>
+
+    <div class="lightbox" data-lightbox hidden>
+        <button class="lightbox__close" type="button" aria-label="Close preview">&times;</button>
+        <img class="lightbox__image" src="" alt="Full screen preview">
     </div>
 
     <script src="js/script.js" defer></script>
