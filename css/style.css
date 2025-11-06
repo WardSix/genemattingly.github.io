@@ -822,6 +822,18 @@ a {
         padding: 0 0.5rem;
     }
 
+    .video-backdrop__poster {
+        display: none;
+    }
+
+    .video-backdrop__media {
+        display: none;
+    }
+
+    .video-backdrop__overlay {
+        background: rgba(5, 5, 5, 0.9);
+    }
+
     .carousel-copy {
         text-align: center;
     }
