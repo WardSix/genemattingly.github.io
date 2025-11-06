@@ -234,14 +234,23 @@ document.addEventListener('DOMContentLoaded', function () {
     var tallyTriggers = Array.prototype.slice.call(document.querySelectorAll('[data-tally-trigger]'));
     if (tallyTriggers.length) {
         var tallyFormId = 'b5VLA6';
+        var tallyMobileMedia = window.matchMedia('(max-width: 640px)');
+
         function openTallyPopup() {
+            var isCompact = tallyMobileMedia.matches;
+            if (isCompact) {
+                window.location.href = 'tally-mobile.html';
+                return;
+            }
+
             if (typeof window.Tally !== 'undefined' && typeof window.Tally.openPopup === 'function') {
                 window.Tally.openPopup(tallyFormId, {
                     layout: 'modal',
                     width: 720,
                     hideTitle: false,
                     overlay: true,
-                    autoClose: 0,
+                    alignLeft: false,
+                    autoClose: 0
                 });
             } else {
                 window.open('https://tally.so/r/' + tallyFormId, '_blank', 'noopener');
