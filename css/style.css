@@ -84,6 +84,68 @@ a {
     text-align: center;
 }
 
+.section__inner--hero {
+    gap: clamp(1.25rem, 4vw, 2.25rem);
+}
+
+.section__inner--about {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: clamp(2rem, 6vw, 3rem);
+    text-align: left;
+    align-items: center;
+}
+
+.about-media {
+    margin: 0;
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+}
+
+.about-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.about-body {
+    display: grid;
+    gap: 1.2rem;
+}
+
+.hero-logo {
+    position: relative;
+    width: clamp(160px, 24vw, 260px);
+    margin: 0 auto;
+}
+
+.hero-logo img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.hero-logo__glow {
+    position: absolute;
+    inset: 0;
+    filter: blur(12px) saturate(1.4);
+    opacity: 0.4;
+    transform: scale(1.12);
+    pointer-events: none;
+}
+
+.hero-logo__caption {
+    margin: 0;
+    font-size: 0.82rem;
+    letter-spacing: 0.48em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
 .section__eyebrow {
     text-transform: uppercase;
     letter-spacing: 0.4em;

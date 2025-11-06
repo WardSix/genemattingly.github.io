@@ -9,41 +9,56 @@
 </head>
 <body>
     <div class="video-backdrop" aria-hidden="true">
-        <video class="video-backdrop__media" autoplay loop muted playsinline webkit-playsinline preload="auto">
-            <source src="video/driftclip.mp4" type="video/mp4">
+        <video
+            class="video-backdrop__media"
+            autoplay
+            muted
+            playsinline
+            webkit-playsinline
+            preload="auto"
+            data-playlist="video/reunionclip.mp4,video/driftclip.mp4">
         </video>
         <div class="video-backdrop__overlay"></div>
     </div>
 
     <div class="parallax-surface">
-        <section class="section" data-parallax="-0.12">
-            <div class="section__inner">
-                <p class="section__eyebrow">Gene Mattingly</p>
-                <h1 class="section__title">A new portfolio is on the horizon.</h1>
-                <p class="section__body">
-                    We’re dialing in a parallax experience that weaves together reels, stills, and behind-the-scenes production stories —
-                    shaped by the same cinematic pacing that drives Gene’s work behind the lens.
-                </p>
+        <section class="section section--hero" data-parallax="-0.12">
+            <div class="section__inner section__inner--hero">
+                <figure class="hero-logo" aria-labelledby="hero-logo-label">
+                    <img src="images/gmlogoregular.png" alt="Gene Mattingly logo" width="280" height="280" decoding="async">
+                    <img src="images/gmlogoinverted.png" alt="" aria-hidden="true" width="280" height="280" decoding="async" class="hero-logo__glow">
+                </figure>
+                <p id="hero-logo-label" class="hero-logo__caption">Gene Mattingly Photo &amp; Video</p>
                 <div class="cta-group">
-                    <a class="hero__cta hero__cta--primary" href="mailto:mattingly.gene@gmail.com">Email Gene</a>
-                    <a class="hero__cta" href="https://www.instagram.com/mattingly.gene/">Instagram</a>
+                    <a class="hero__cta hero__cta--primary" href="mailto:mattingly.gene@gmail.com">Book A Session</a>
+                    <a class="hero__cta" href="#portfolio">View Portfolio</a>
                 </div>
             </div>
         </section>
 
-        <section class="section" data-parallax="-0.06">
-            <div class="section__inner">
-                <p class="section__eyebrow">In Development</p>
-                <h2 class="section__title">What the refresh will deliver</h2>
-                <ul class="list section__body">
-                    <li>Full-screen parallax galleries with motion and still storytelling.</li>
-                    <li>Project spotlights spanning senior portraits, automotive, and live events.</li>
-                    <li>Integrated booking flow with availability, packages, and add-ons.</li>
-                </ul>
+        <section id="about" class="section" data-parallax="-0.06">
+            <div class="section__inner section__inner--about">
+                <figure class="about-media">
+                    <img src="images/me.JPG" alt="Portrait of Gene Mattingly" width="480" height="640" decoding="async">
+                </figure>
+                <div class="about-body">
+                    <p class="section__eyebrow">About Gene</p>
+                    <h2 class="section__title">Portraits, seniors, and events with cinematic polish.</h2>
+                    <p class="section__body">
+                        I work with families and milestone crews across Texas to craft images that feel alive long after the moment passes.
+                        From senior sessions that bring wardrobe, mood boards, and custom locations together, to intimate celebrations that deserve genuine coverage,
+                        every shoot puts connection and detail first.
+                    </p>
+                    <ul class="list">
+                        <li>Senior portraits with collaborative styling, multi-look planning, and high-impact edits.</li>
+                        <li>Event coverage (birthdays, reunions, engagement parties) focused on candid storytelling and hero frames.</li>
+                        <li>Portrait offerings for individuals, teams, and creative commissions with add-on video reels.</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
-        <section class="section" data-parallax="-0.03">
+        <section id="portfolio" class="section" data-parallax="-0.03">
             <div class="section__inner">
                 <p class="section__eyebrow">Stay Connected</p>
                 <h2 class="section__title">Collaborate, book, or just say hello.</h2>
