@@ -128,9 +128,11 @@ document.addEventListener('DOMContentLoaded', function () {
         var swipeDirectionMultiplier = directionAttr === 'reverse' ? -1 : 1;
         var swipeState = {
             active: false,
-            startX: 0
+            startX: 0,
+            startY: 0,
+            vertical: false
         };
-        var swipeThreshold = 45;
+        var swipeThreshold = 35;
 
         function setActiveCard(newIndex) {
             currentCardIndex = (newIndex + cards.length) % cards.length;
@@ -192,6 +194,23 @@ document.addEventListener('DOMContentLoaded', function () {
             }
             swipeState.active = true;
             swipeState.startX = touch.clientX;
+            swipeState.startY = touch.clientY;
+            swipeState.vertical = false;
+        }
+
+        function handleTouchMove(event) {
+            if (!isMobileView || !swipeState.active) {
+                return;
+            }
+            var touch = event.touches && event.touches[0];
+            if (!touch) {
+                return;
+            }
+            var deltaX = touch.clientX - swipeState.startX;
+            var deltaY = touch.clientY - swipeState.startY;
+            if (Math.abs(deltaY) > Math.abs(deltaX) && Math.abs(deltaY) > 6) {
+                swipeState.vertical = true;
+            }
         }
 
         function handleTouchEnd(event) {
@@ -200,6 +219,10 @@ document.addEventListener('DOMContentLoaded', function () {
             }
             var touch = event.changedTouches && event.changedTouches[0];
             if (!touch) {
+                swipeState.active = false;
+                return;
+            }
+             if (swipeState.vertical) {
                 swipeState.active = false;
                 return;
             }
@@ -214,6 +237,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (stack) {
             stack.addEventListener('touchstart', handleTouchStart, { passive: true });
+            stack.addEventListener('touchmove', handleTouchMove, { passive: true });
             stack.addEventListener('touchend', handleTouchEnd, { passive: true });
         }
 
