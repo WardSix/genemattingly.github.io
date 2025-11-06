@@ -5,10 +5,18 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     var parallaxNodes = Array.prototype.slice.call(document.querySelectorAll('[data-parallax]'));
-    var parallaxMediaQuery = window.matchMedia('(max-width: 768px)');
+    var supportsMatchMedia = typeof window.matchMedia === 'function';
+    var parallaxMediaQuery = supportsMatchMedia ? window.matchMedia('(max-width: 768px)') : null;
+    var narrowViewportQuery = supportsMatchMedia ? window.matchMedia('(max-width: 640px)') : null;
+    var reduceMotionQuery = supportsMatchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
+
+    function getViewportWidth() {
+        return window.innerWidth || document.documentElement.clientWidth || 0;
+    }
 
     function enableParallax() {
-        return parallaxNodes.length && typeof window !== 'undefined' && !parallaxMediaQuery.matches;
+        var avoidParallax = parallaxMediaQuery ? parallaxMediaQuery.matches : getViewportWidth() <= 768;
+        return parallaxNodes.length && typeof window !== 'undefined' && !avoidParallax;
     }
 
     if (enableParallax()) {
@@ -36,32 +44,32 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function handleParallaxToggle(event) {
-        if (parallaxNodes.length === 0) {
+        if (parallaxNodes.length === 0 || !event) {
             return;
         }
         if (event.matches) {
             parallaxNodes.forEach(function (node) {
                 node.style.transform = '';
             });
-        } else {
-            if (enableParallax()) {
-                window.requestAnimationFrame(function () {
-                    window.dispatchEvent(new Event('scroll'));
-                });
-            }
+        } else if (enableParallax()) {
+            window.requestAnimationFrame(function () {
+                window.dispatchEvent(new Event('scroll'));
+            });
         }
     }
 
-    if (typeof parallaxMediaQuery.addEventListener === 'function') {
-        parallaxMediaQuery.addEventListener('change', handleParallaxToggle);
-    } else if (typeof parallaxMediaQuery.addListener === 'function') {
-        parallaxMediaQuery.addListener(handleParallaxToggle);
+    if (parallaxMediaQuery) {
+        if (typeof parallaxMediaQuery.addEventListener === 'function') {
+            parallaxMediaQuery.addEventListener('change', handleParallaxToggle);
+        } else if (typeof parallaxMediaQuery.addListener === 'function') {
+            parallaxMediaQuery.addListener(handleParallaxToggle);
+        }
     }
 
     var backdrop = document.querySelector('.video-backdrop');
     var backdropVideo = document.querySelector('.video-backdrop__media');
-    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var prefersStaticVideo = reduceMotion || window.matchMedia('(max-width: 640px)').matches;
+    var reduceMotion = reduceMotionQuery ? reduceMotionQuery.matches : false;
+    var prefersStaticVideo = reduceMotion || (narrowViewportQuery ? narrowViewportQuery.matches : getViewportWidth() <= 640);
     if (backdropVideo && !prefersStaticVideo) {
         var playlist = [];
         var rawList = backdropVideo.getAttribute('data-playlist');
@@ -145,7 +153,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    var mobileMedia = window.matchMedia('(max-width: 640px)');
+    var mobileMedia = narrowViewportQuery;
 
     var carousels = Array.prototype.slice.call(document.querySelectorAll('[data-carousel]'));
     carousels.forEach(function (carousel) {
@@ -160,7 +168,7 @@ document.addEventListener('DOMContentLoaded', function () {
         var currentCardIndex = 0;
         var directionAttr = carousel.getAttribute('data-carousel-direction');
         var directionMultiplier = directionAttr === 'reverse' ? -1 : 1;
-        var isMobileView = mobileMedia.matches;
+        var isMobileView = mobileMedia ? mobileMedia.matches : getViewportWidth() <= 640;
         var swipeDirectionMultiplier = directionAttr === 'reverse' ? -1 : 1;
         var swipeState = {
             active: false,
@@ -175,6 +183,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         function setActiveCard(newIndex) {
             currentCardIndex = (newIndex + cards.length) % cards.length;
+            var activeElement = document.activeElement;
             cards.forEach(function (card, cardIndex) {
                 var offset = cardIndex - currentCardIndex;
                 var translateX = offset * 12 * directionMultiplier;
@@ -187,6 +196,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     card.removeAttribute('aria-hidden');
                     card.tabIndex = 0;
                 } else {
+                    if (activeElement === card) {
+                        card.blur();
+                    }
                     card.classList.remove('is-active');
                     card.setAttribute('aria-hidden', 'true');
                     card.tabIndex = -1;
@@ -309,14 +321,18 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         function handleMediaChange() {
-            isMobileView = mobileMedia.matches;
+            isMobileView = mobileMedia ? mobileMedia.matches : getViewportWidth() <= 640;
             carousel.classList.toggle('carousel--touch', isMobileView);
         }
 
-        if (typeof mobileMedia.addEventListener === 'function') {
-            mobileMedia.addEventListener('change', handleMediaChange);
-        } else if (typeof mobileMedia.addListener === 'function') {
-            mobileMedia.addListener(handleMediaChange);
+        if (mobileMedia) {
+            if (typeof mobileMedia.addEventListener === 'function') {
+                mobileMedia.addEventListener('change', handleMediaChange);
+            } else if (typeof mobileMedia.addListener === 'function') {
+                mobileMedia.addListener(handleMediaChange);
+            }
+        } else {
+            window.addEventListener('resize', handleMediaChange);
         }
 
         handleMediaChange();
@@ -325,10 +341,10 @@ document.addEventListener('DOMContentLoaded', function () {
     var tallyTriggers = Array.prototype.slice.call(document.querySelectorAll('[data-tally-trigger]'));
     if (tallyTriggers.length) {
         var tallyFormId = 'b5VLA6';
-        var tallyMobileMedia = window.matchMedia('(max-width: 640px)');
+        var tallyMobileMedia = mobileMedia;
 
         function openTallyPopup() {
-            var isCompact = tallyMobileMedia.matches;
+            var isCompact = tallyMobileMedia ? tallyMobileMedia.matches : getViewportWidth() <= 640;
             if (isCompact) {
                 window.location.href = 'tally-mobile.html';
                 return;
