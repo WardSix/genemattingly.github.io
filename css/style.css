@@ -554,6 +554,7 @@ a {
     position: relative;
     min-height: clamp(320px, 38vw, 460px);
     perspective: 1600px;
+    touch-action: pan-y;
 }
 
 .carousel__card {
@@ -569,6 +570,7 @@ a {
     cursor: pointer;
     transition: transform 0.35s ease, box-shadow 0.2s ease, filter 0.2s ease;
     will-change: transform;
+    touch-action: pan-y;
 }
 
 .carousel__card img {

@@ -109,6 +109,8 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    var mobileMedia = window.matchMedia('(max-width: 640px)');
+
     var carousels = Array.prototype.slice.call(document.querySelectorAll('[data-carousel]'));
     carousels.forEach(function (carousel) {
         var cards = Array.prototype.slice.call(carousel.querySelectorAll('.carousel__card'));
@@ -118,9 +120,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
         var prevButton = carousel.querySelector('.carousel__nav--prev');
         var nextButton = carousel.querySelector('.carousel__nav--next');
+        var stack = carousel.querySelector('.carousel__stack');
         var currentCardIndex = 0;
         var directionAttr = carousel.getAttribute('data-carousel-direction');
         var directionMultiplier = directionAttr === 'reverse' ? -1 : 1;
+        var isMobileView = mobileMedia.matches;
+        var swipeState = {
+            active: false,
+            startX: 0
+        };
+        var swipeThreshold = 45;
 
         function setActiveCard(newIndex) {
             currentCardIndex = (newIndex + cards.length) % cards.length;
@@ -160,6 +169,9 @@ document.addEventListener('DOMContentLoaded', function () {
         cards.forEach(function (card, cardIndex) {
             card.addEventListener('click', function () {
                 setActiveCard(cardIndex);
+                if (isMobileView) {
+                    return;
+                }
                 var img = card.querySelector('img');
                 var fullSrc = card.getAttribute('data-full') || (img ? img.src : '');
                 var altCopy = img ? img.alt : '';
@@ -168,6 +180,54 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
         });
+
+        function handleTouchStart(event) {
+            if (!isMobileView) {
+                return;
+            }
+            var touch = event.touches && event.touches[0];
+            if (!touch) {
+                return;
+            }
+            swipeState.active = true;
+            swipeState.startX = touch.clientX;
+        }
+
+        function handleTouchEnd(event) {
+            if (!isMobileView || !swipeState.active) {
+                return;
+            }
+            var touch = event.changedTouches && event.changedTouches[0];
+            if (!touch) {
+                swipeState.active = false;
+                return;
+            }
+            var deltaX = touch.clientX - swipeState.startX;
+            if (deltaX <= -swipeThreshold) {
+                setActiveCard(currentCardIndex + 1);
+            } else if (deltaX >= swipeThreshold) {
+                setActiveCard(currentCardIndex - 1);
+            }
+            swipeState.active = false;
+        }
+
+        if (stack) {
+            stack.addEventListener('touchstart', handleTouchStart, { passive: true });
+            stack.addEventListener('touchend', handleTouchEnd, { passive: true });
+        }
+
+        function handleMediaChange() {
+            isMobileView = mobileMedia.matches;
+            carousel.classList.toggle('carousel--touch', isMobileView);
+        }
+
+        if (typeof mobileMedia.addEventListener === 'function') {
+            mobileMedia.addEventListener('change', handleMediaChange);
+        } else if (typeof mobileMedia.addListener === 'function') {
+            mobileMedia.addListener(handleMediaChange);
+        }
+
+        handleMediaChange();
     });
 
     var tallyTriggers = Array.prototype.slice.call(document.querySelectorAll('[data-tally-trigger]'));
