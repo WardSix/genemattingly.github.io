@@ -157,15 +157,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var carousels = Array.prototype.slice.call(document.querySelectorAll('[data-carousel]'));
     carousels.forEach(function (carousel) {
+        if (carousel.dataset.carouselReady === 'true') {
+            return;
+        }
+        carousel.dataset.carouselReady = 'true';
+
         var cards = Array.prototype.slice.call(carousel.querySelectorAll('.carousel__card'));
-        if (!cards.length) {
+        var stack = carousel.querySelector('.carousel__stack');
+        if (!cards.length || !stack) {
             return;
         }
 
         var prevButton = carousel.querySelector('.carousel__nav--prev');
         var nextButton = carousel.querySelector('.carousel__nav--next');
-        var stack = carousel.querySelector('.carousel__stack');
+        var invertNav = carousel.hasAttribute('data-carousel-nav-inverted');
         var currentCardIndex = 0;
+        var maxFanOut = Math.max(1, Math.min(3, Math.floor(cards.length / 2)));
         var directionAttr = carousel.getAttribute('data-carousel-direction');
         var directionMultiplier = directionAttr === 'reverse' ? -1 : 1;
         var isMobileView = mobileMedia ? mobileMedia.matches : getViewportWidth() <= 640;
@@ -186,11 +193,16 @@ document.addEventListener('DOMContentLoaded', function () {
             var activeElement = document.activeElement;
             cards.forEach(function (card, cardIndex) {
                 var offset = cardIndex - currentCardIndex;
-                var translateX = offset * 12 * directionMultiplier;
-                var rotate = offset * 3 * directionMultiplier;
-                var translateY = Math.abs(offset) * 4;
+                var clampedOffset = Math.max(Math.min(offset, maxFanOut), -maxFanOut);
+                var translateX = clampedOffset * 10 * directionMultiplier;
+                var rotate = clampedOffset * 2.5 * directionMultiplier;
+                var translateY = Math.abs(clampedOffset) * 4;
+                var hidden = Math.abs(offset) > maxFanOut;
+
                 card.style.transform = 'translate(-50%, -50%) translateX(' + translateX + '%) translateY(' + translateY + 'px) rotate(' + rotate + 'deg)';
-                card.style.zIndex = String(cards.length - Math.abs(offset));
+                card.style.zIndex = String(cards.length - Math.abs(clampedOffset));
+                card.style.opacity = hidden ? '0' : '1';
+                card.style.pointerEvents = hidden ? 'none' : '';
                 if (cardIndex === currentCardIndex) {
                     card.classList.add('is-active');
                     card.removeAttribute('aria-hidden');
@@ -208,15 +220,31 @@ document.addEventListener('DOMContentLoaded', function () {
 
         setActiveCard(0);
 
+        function setNavCopy(button, ariaText, srCopy) {
+            if (!button) {
+                return;
+            }
+            button.setAttribute('aria-label', ariaText);
+            var sr = button.querySelector('.sr-only');
+            if (sr) {
+                sr.textContent = srCopy;
+            }
+        }
+
+        if (invertNav) {
+            setNavCopy(prevButton, 'Show next photo set', 'Next');
+            setNavCopy(nextButton, 'Show previous photo set', 'Previous');
+        }
+
         if (prevButton) {
             prevButton.addEventListener('click', function () {
-                setActiveCard(currentCardIndex - 1);
+                setActiveCard(currentCardIndex + (invertNav ? 1 : -1));
             });
         }
 
         if (nextButton) {
             nextButton.addEventListener('click', function () {
-                setActiveCard(currentCardIndex + 1);
+                setActiveCard(currentCardIndex + (invertNav ? -1 : 1));
             });
         }
 

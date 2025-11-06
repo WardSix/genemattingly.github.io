@@ -29,6 +29,19 @@ a {
     color: inherit;
 }
 
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+}
+
 .video-backdrop {
     position: fixed;
     inset: 0;
@@ -221,13 +234,13 @@ a {
 
 .section__inner--carousel {
     align-items: center;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: minmax(280px, 0.85fr) minmax(360px, 1.15fr);
     text-align: left;
-    gap: clamp(2rem, 6vw, 3.5rem);
+    gap: clamp(2.5rem, 7vw, 4.5rem);
 }
 
 .section__inner--carousel-left {
-    grid-template-columns: minmax(320px, 0.95fr) minmax(320px, 1fr);
+    grid-template-columns: minmax(360px, 1.15fr) minmax(280px, 0.85fr);
     justify-items: stretch;
     align-items: center;
 }
@@ -392,6 +405,9 @@ a {
 .carousel-copy {
     display: grid;
     gap: 1rem;
+    position: relative;
+    z-index: 5;
+    padding-right: clamp(0.5rem, 2vw, 1.75rem);
 }
 
 .about-media {
@@ -537,10 +553,13 @@ a {
 
 .carousel {
     position: relative;
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    gap: 1rem;
+    display: flex;
     align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: clamp(0.75rem, 2vw, 1.25rem) clamp(2.25rem, 5vw, 4rem);
+    --carousel-nav-prev-inset: clamp(0.65rem, 3vw, 1.5rem);
+    --carousel-nav-next-inset: clamp(0.65rem, 3vw, 1.5rem);
 }
 
 .carousel__nav {
@@ -556,12 +575,35 @@ a {
     justify-content: center;
     cursor: pointer;
     transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    position: absolute;
+    top: 50%;
+    transform: translate3d(0, -50%, 0);
+    z-index: 8;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
 }
 
 .carousel__nav:hover {
-    transform: translateY(-2px);
+    transform: translate3d(0, calc(-50% - 2px), 0);
     border-color: rgba(255, 255, 255, 0.4);
     background: rgba(255, 255, 255, 0.16);
+}
+
+.carousel__nav:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+}
+
+.carousel__nav--prev {
+    left: var(--carousel-nav-prev-inset);
+}
+
+.carousel__nav--next {
+    right: var(--carousel-nav-next-inset);
+}
+
+.carousel__nav-icon {
+    width: 22px;
+    height: 22px;
 }
 
 .carousel--left {
@@ -575,7 +617,9 @@ a {
 
 .carousel__stack {
     position: relative;
+    width: clamp(220px, 38vw, 420px);
     min-height: clamp(320px, 38vw, 460px);
+    margin: 0 auto;
     perspective: 1600px;
     touch-action: pan-y;
 }
@@ -591,7 +635,7 @@ a {
     padding: 0;
     background: transparent;
     cursor: pointer;
-    transition: transform 0.35s ease, box-shadow 0.2s ease, filter 0.2s ease;
+    transition: transform 0.35s ease, box-shadow 0.2s ease, filter 0.2s ease, opacity 0.25s ease;
     will-change: transform;
     touch-action: pan-y;
 }
@@ -731,15 +775,13 @@ a {
     }
 
     .carousel {
-        grid-template-columns: 1fr;
-    }
-
-    .carousel__nav {
-        order: -1;
-        margin: 0 auto;
+        padding: clamp(0.6rem, 3vw, 1rem) clamp(1.25rem, 4vw, 2.5rem);
+        --carousel-nav-prev-inset: clamp(0.5rem, 4vw, 1rem);
+        --carousel-nav-next-inset: clamp(0.5rem, 4vw, 1rem);
     }
 
     .carousel__stack {
+        width: clamp(220px, 60vw, 360px);
         min-height: clamp(260px, 50vw, 360px);
         margin-left: 0;
     }
@@ -836,10 +878,13 @@ a {
 
     .carousel-copy {
         text-align: center;
+        padding-right: 0;
     }
 
     .carousel {
-        gap: 0.5rem;
+        padding: clamp(1.75rem, 10vw, 3.2rem) clamp(1rem, 5vw, 1.5rem);
+        --carousel-nav-prev-inset: clamp(0.35rem, 4vw, 0.85rem);
+        --carousel-nav-next-inset: clamp(0.35rem, 4vw, 0.85rem);
     }
 
     .carousel__nav {
@@ -849,6 +894,7 @@ a {
     }
 
     .carousel__stack {
+        width: clamp(220px, 78vw, 300px);
         min-height: clamp(260px, 70vw, 360px);
     }
 
