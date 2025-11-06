@@ -5,7 +5,13 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     var parallaxNodes = Array.prototype.slice.call(document.querySelectorAll('[data-parallax]'));
-    if (parallaxNodes.length && typeof window !== 'undefined') {
+    var parallaxMediaQuery = window.matchMedia('(max-width: 768px)');
+
+    function enableParallax() {
+        return parallaxNodes.length && typeof window !== 'undefined' && !parallaxMediaQuery.matches;
+    }
+
+    if (enableParallax()) {
         var ticking = false;
 
         function updateParallax() {
@@ -27,6 +33,29 @@ document.addEventListener('DOMContentLoaded', function () {
 
         window.addEventListener('scroll', requestUpdate, { passive: true });
         requestUpdate();
+    }
+
+    function handleParallaxToggle(event) {
+        if (parallaxNodes.length === 0) {
+            return;
+        }
+        if (event.matches) {
+            parallaxNodes.forEach(function (node) {
+                node.style.transform = '';
+            });
+        } else {
+            if (enableParallax()) {
+                window.requestAnimationFrame(function () {
+                    window.dispatchEvent(new Event('scroll'));
+                });
+            }
+        }
+    }
+
+    if (typeof parallaxMediaQuery.addEventListener === 'function') {
+        parallaxMediaQuery.addEventListener('change', handleParallaxToggle);
+    } else if (typeof parallaxMediaQuery.addListener === 'function') {
+        parallaxMediaQuery.addListener(handleParallaxToggle);
     }
 
     var backdrop = document.querySelector('.video-backdrop');
