@@ -248,7 +248,8 @@ a {
 .section__inner--carousel-left .carousel-copy {
     position: relative;
     z-index: 2;
-    margin-left: clamp(1.5rem, 5vw, 4rem);
+    margin-left: clamp(0.5rem, 2vw, 1.75rem);
+    padding-right: 0;
 }
 
 .section__inner--pricing {
@@ -460,6 +461,15 @@ a {
     color: var(--muted);
 }
 
+.hero__lede {
+    max-width: 640px;
+    margin: clamp(0.75rem, 2vw, 1.5rem) auto;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgba(246, 246, 246, 0.85);
+}
+
 .section__eyebrow {
     text-transform: uppercase;
     letter-spacing: 0.4em;
@@ -516,32 +526,6 @@ a {
     flex-wrap: wrap;
     gap: 1rem;
     justify-content: center;
-}
-
-.list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: grid;
-    gap: 0.75rem;
-    color: rgba(246, 246, 246, 0.78);
-}
-
-.list li {
-    position: relative;
-    padding-left: 1.4rem;
-}
-
-.list li::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0.55rem;
-    width: 0.6rem;
-    height: 0.6rem;
-    border-radius: 50%;
-    background: var(--accent);
-    box-shadow: 0 0 8px rgba(230, 57, 70, 0.4);
 }
 
 .footer {
