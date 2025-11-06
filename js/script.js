@@ -169,4 +169,36 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     });
+
+    var mailtoForms = Array.prototype.slice.call(document.querySelectorAll('[data-mailto-form]'));
+    mailtoForms.forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            var formData = new FormData(form);
+            var name = (formData.get('name') || '').trim();
+            var email = (formData.get('email') || '').trim();
+            var service = formData.get('service') || 'General Inquiry';
+            var message = (formData.get('message') || '').trim();
+            if (!name || !email || !message) {
+                return;
+            }
+
+            var subject = 'Inquiry: ' + service + ' from ' + name;
+            var body = [
+                'Name: ' + name,
+                'Email: ' + email,
+                'Service: ' + service,
+                '',
+                message
+            ].join('\n');
+            var mailtoUrl = 'mailto:mattingly.gene@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+            window.location.href = mailtoUrl;
+
+            var statusNode = form.querySelector('[data-form-status]');
+            if (statusNode) {
+                statusNode.textContent = 'Opening your mail app so you can send the details...';
+                statusNode.hidden = false;
+            }
+        });
+    });
 });

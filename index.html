@@ -248,6 +248,45 @@
             </div>
         </section>
 
+        <section id="inquire" class="section" data-parallax="-0.031">
+            <div class="section__inner section__inner--inquire">
+                <div class="contact-copy">
+                    <p class="section__eyebrow">Get In Touch</p>
+                    <h2 class="section__title">Share the details, I'll craft the plan.</h2>
+                    <p class="section__body">
+                        Tell me about the celebration, portrait, or production you have in mind and I'll respond with a tailored concept,
+                        availability, and next steps within 24 hours.
+                    </p>
+                </div>
+                <form class="contact-form" data-mailto-form>
+                    <div class="contact-form__row">
+                        <label for="contact-name">Name</label>
+                        <input id="contact-name" name="name" type="text" placeholder="Your name" required>
+                    </div>
+                    <div class="contact-form__row">
+                        <label for="contact-email">Email</label>
+                        <input id="contact-email" name="email" type="email" placeholder="you@email.com" required>
+                    </div>
+                    <div class="contact-form__row">
+                        <label for="contact-service">What are you planning?</label>
+                        <select id="contact-service" name="service" required>
+                            <option value="" disabled selected>Select a session type</option>
+                            <option value="Portrait or Senior">Portrait or Senior Session</option>
+                            <option value="Event Coverage">Event or Celebration Coverage</option>
+                            <option value="Film and Editorial">Film / Editorial Production</option>
+                            <option value="Other">Something else</option>
+                        </select>
+                    </div>
+                    <div class="contact-form__row">
+                        <label for="contact-message">Tell me more</label>
+                        <textarea id="contact-message" name="message" rows="4" placeholder="Date, vibe, must-have shots, etc." required></textarea>
+                    </div>
+                    <p class="contact-form__status" data-form-status hidden></p>
+                    <button class="contact-form__submit" type="submit">Send The Details</button>
+                </form>
+            </div>
+        </section>
+
         <section id="portfolio" class="section" data-parallax="-0.03">
             <div class="section__inner">
                 <p class="section__eyebrow">Stay Connected</p>
