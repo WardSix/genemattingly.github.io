@@ -155,6 +155,99 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var mobileMedia = narrowViewportQuery;
 
+    var ctaScrollSelector = '.site-nav__cta, .hero__cta, .holiday-card__cta, .pricing-card__cta, .highlight-cta, .contact-panel__button';
+    var ctaScrollTargets = Array.prototype.slice.call(document.querySelectorAll(ctaScrollSelector));
+    var ctaScrollObserver = null;
+    var ctaScrollEnabled = false;
+
+    function prefersReducedMotionNow() {
+        return reduceMotionQuery ? reduceMotionQuery.matches : false;
+    }
+
+    function handleCtaIntersection(entries) {
+        entries.forEach(function (entry) {
+            if (!entry || !entry.target) {
+                return;
+            }
+            if (entry.isIntersecting) {
+                entry.target.classList.add('cta-scroll--visible');
+            } else {
+                entry.target.classList.remove('cta-scroll--visible');
+            }
+        });
+    }
+
+    function enableCtaScroll() {
+        if (ctaScrollEnabled || !ctaScrollTargets.length) {
+            return;
+        }
+        ctaScrollEnabled = true;
+        ctaScrollTargets.forEach(function (target) {
+            target.classList.add('cta-scroll');
+        });
+
+        if (typeof window === 'undefined' || !('IntersectionObserver' in window)) {
+            ctaScrollTargets.forEach(function (target) {
+                target.classList.add('cta-scroll--visible');
+            });
+            return;
+        }
+
+        ctaScrollObserver = new IntersectionObserver(handleCtaIntersection, {
+            threshold: 0.35,
+            rootMargin: '0px 0px -5% 0px'
+        });
+
+        ctaScrollTargets.forEach(function (target) {
+            ctaScrollObserver.observe(target);
+        });
+    }
+
+    function disableCtaScroll() {
+        if (ctaScrollObserver) {
+            ctaScrollObserver.disconnect();
+            ctaScrollObserver = null;
+        }
+
+        if (ctaScrollTargets.length) {
+            ctaScrollTargets.forEach(function (target) {
+                target.classList.remove('cta-scroll', 'cta-scroll--visible');
+            });
+        }
+
+        ctaScrollEnabled = false;
+    }
+
+    function evaluateCtaScroll() {
+        var isCompactViewport = mobileMedia ? mobileMedia.matches : getViewportWidth() <= 640;
+        var reduceMotionEnabled = prefersReducedMotionNow();
+        if (ctaScrollTargets.length && isCompactViewport && !reduceMotionEnabled) {
+            enableCtaScroll();
+        } else {
+            disableCtaScroll();
+        }
+    }
+
+    evaluateCtaScroll();
+
+    if (mobileMedia) {
+        if (typeof mobileMedia.addEventListener === 'function') {
+            mobileMedia.addEventListener('change', evaluateCtaScroll);
+        } else if (typeof mobileMedia.addListener === 'function') {
+            mobileMedia.addListener(evaluateCtaScroll);
+        }
+    } else {
+        window.addEventListener('resize', evaluateCtaScroll);
+    }
+
+    if (reduceMotionQuery) {
+        if (typeof reduceMotionQuery.addEventListener === 'function') {
+            reduceMotionQuery.addEventListener('change', evaluateCtaScroll);
+        } else if (typeof reduceMotionQuery.addListener === 'function') {
+            reduceMotionQuery.addListener(evaluateCtaScroll);
+        }
+    }
+
     var carousels = Array.prototype.slice.call(document.querySelectorAll('[data-carousel]'));
     carousels.forEach(function (carousel) {
         if (carousel.dataset.carouselReady === 'true') {
