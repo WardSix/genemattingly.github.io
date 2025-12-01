@@ -309,6 +309,65 @@ a {
     gap: 0.75rem;
 }
 
+.site-nav__social {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.social-link svg {
+    width: 16px;
+    height: 16px;
+}
+
+.social-link:hover,
+.social-link:focus-visible {
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.12);
+    transform: translate3d(0, -1px, 0);
+}
+
+.social-link:focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.35);
+    outline-offset: 3px;
+}
+
+.social-link--labeled {
+    gap: 0.45rem;
+    width: auto;
+    height: auto;
+    padding: 0.55rem 0.9rem;
+    border-radius: 999px;
+    letter-spacing: 0.06em;
+    font-size: 0.9rem;
+    color: var(--text);
+}
+
+.social-link--labeled svg {
+    width: 17px;
+    height: 17px;
+}
+
+.social-link__icon {
+    display: inline-flex;
+    align-items: center;
+}
+
 .site-nav__phone {
     font-size: 0.78rem;
     letter-spacing: 0.22em;
@@ -635,6 +694,13 @@ a {
     box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
     display: grid;
     gap: 1rem;
+}
+
+.contact-social {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.65rem;
 }
 
 .contact-panel__button {
@@ -1307,6 +1373,10 @@ a {
         text-align: center;
         padding: clamp(1.75rem, 8vw, 2.5rem);
         gap: 1.3rem;
+    }
+
+    .contact-social {
+        justify-content: center;
     }
 
     .contact-panel__button {
