@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var mobileMedia = narrowViewportQuery;
 
-    var ctaScrollSelector = '.site-nav__cta, .hero__cta, .pricing-card__cta, .highlight-cta, .contact-panel__button';
+    var ctaScrollSelector = '.site-nav__cta, .hero__cta, .band-offer__cta, .pricing-card__cta, .highlight-cta, .contact-panel__button';
     var ctaScrollTargets = Array.prototype.slice.call(document.querySelectorAll(ctaScrollSelector));
     var ctaScrollObserver = null;
     var ctaScrollEnabled = false;

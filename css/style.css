@@ -47,7 +47,7 @@ a {
     }
 }
 
-:where(.site-nav__cta, .hero__cta, .pricing-card__cta, .highlight-cta, .contact-panel__button) {
+:where(.site-nav__cta, .hero__cta, .band-offer__cta, .pricing-card__cta, .highlight-cta, .contact-panel__button) {
     position: relative;
     overflow: hidden;
     isolation: isolate;
@@ -60,7 +60,7 @@ a {
         opacity 0.45s ease;
 }
 
-:where(.site-nav__cta, .hero__cta, .pricing-card__cta, .highlight-cta, .contact-panel__button)::after {
+:where(.site-nav__cta, .hero__cta, .band-offer__cta, .pricing-card__cta, .highlight-cta, .contact-panel__button)::after {
     content: "";
     position: absolute;
     inset: 0;
@@ -72,7 +72,7 @@ a {
     pointer-events: none;
 }
 
-:where(.site-nav__cta, .hero__cta, .pricing-card__cta, .highlight-cta, .contact-panel__button)::before {
+:where(.site-nav__cta, .hero__cta, .band-offer__cta, .pricing-card__cta, .highlight-cta, .contact-panel__button)::before {
     content: "";
     position: absolute;
     top: 50%;
@@ -86,44 +86,44 @@ a {
     pointer-events: none;
 }
 
-:where(.site-nav__cta, .hero__cta, .pricing-card__cta, .highlight-cta, .contact-panel__button):hover::after,
-:where(.site-nav__cta, .hero__cta, .pricing-card__cta, .highlight-cta, .contact-panel__button):focus-visible::after {
+:where(.site-nav__cta, .hero__cta, .band-offer__cta, .pricing-card__cta, .highlight-cta, .contact-panel__button):hover::after,
+:where(.site-nav__cta, .hero__cta, .band-offer__cta, .pricing-card__cta, .highlight-cta, .contact-panel__button):focus-visible::after {
     opacity: 0.75;
     transform: scale(1.02);
 }
 
-:where(.site-nav__cta, .hero__cta, .pricing-card__cta, .highlight-cta, .contact-panel__button):hover::before {
+:where(.site-nav__cta, .hero__cta, .band-offer__cta, .pricing-card__cta, .highlight-cta, .contact-panel__button):hover::before {
     opacity: 1;
     animation: button-sheen 1s ease forwards;
 }
 
-:where(.site-nav__cta, .hero__cta, .pricing-card__cta, .highlight-cta, .contact-panel__button):hover,
-:where(.site-nav__cta, .hero__cta, .pricing-card__cta, .highlight-cta, .contact-panel__button):focus-visible {
+:where(.site-nav__cta, .hero__cta, .band-offer__cta, .pricing-card__cta, .highlight-cta, .contact-panel__button):hover,
+:where(.site-nav__cta, .hero__cta, .band-offer__cta, .pricing-card__cta, .highlight-cta, .contact-panel__button):focus-visible {
     transform: translate3d(0, -3px, 0);
 }
 
-:where(.site-nav__cta, .hero__cta, .pricing-card__cta, .highlight-cta, .contact-panel__button):focus-visible {
+:where(.site-nav__cta, .hero__cta, .band-offer__cta, .pricing-card__cta, .highlight-cta, .contact-panel__button):focus-visible {
     outline: 2px solid rgba(255, 255, 255, 0.35);
     outline-offset: 3px;
 }
 
-:where(.site-nav__cta, .hero__cta, .pricing-card__cta, .highlight-cta, .contact-panel__button):active {
+:where(.site-nav__cta, .hero__cta, .band-offer__cta, .pricing-card__cta, .highlight-cta, .contact-panel__button):active {
     transform: translate3d(0, -1px, 0);
     box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
 }
 
 @media (prefers-reduced-motion: reduce) {
-    :where(.site-nav__cta, .hero__cta, .pricing-card__cta, .highlight-cta, .contact-panel__button) {
+    :where(.site-nav__cta, .hero__cta, .band-offer__cta, .pricing-card__cta, .highlight-cta, .contact-panel__button) {
         transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
     }
 
-    :where(.site-nav__cta, .hero__cta, .pricing-card__cta, .highlight-cta, .contact-panel__button):hover,
-    :where(.site-nav__cta, .hero__cta, .pricing-card__cta, .highlight-cta, .contact-panel__button):focus-visible,
-    :where(.site-nav__cta, .hero__cta, .pricing-card__cta, .highlight-cta, .contact-panel__button):active {
+    :where(.site-nav__cta, .hero__cta, .band-offer__cta, .pricing-card__cta, .highlight-cta, .contact-panel__button):hover,
+    :where(.site-nav__cta, .hero__cta, .band-offer__cta, .pricing-card__cta, .highlight-cta, .contact-panel__button):focus-visible,
+    :where(.site-nav__cta, .hero__cta, .band-offer__cta, .pricing-card__cta, .highlight-cta, .contact-panel__button):active {
         transform: none;
     }
 
-    :where(.site-nav__cta, .hero__cta, .pricing-card__cta, .highlight-cta, .contact-panel__button)::before {
+    :where(.site-nav__cta, .hero__cta, .band-offer__cta, .pricing-card__cta, .highlight-cta, .contact-panel__button)::before {
         animation: none !important;
     }
 
@@ -451,6 +451,98 @@ a {
     z-index: 2;
     margin-left: clamp(0.5rem, 2vw, 1.75rem);
     padding-right: 0;
+}
+
+.section--band {
+    --band-blue: #6fd5ff;
+    --band-amber: #f6c177;
+}
+
+.section--band::before {
+    border-color: rgba(111, 213, 255, 0.35);
+    background: linear-gradient(145deg, rgba(8, 12, 20, 0.9), rgba(20, 12, 6, 0.9));
+    box-shadow: 0 35px 80px rgba(0, 0, 0, 0.55);
+}
+
+.section__inner--band {
+    max-width: min(1080px, 92vw);
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: clamp(1.5rem, 5vw, 3rem);
+    align-items: stretch;
+    text-align: center;
+    justify-items: center;
+}
+
+.band-copy {
+    display: grid;
+    gap: 1rem;
+    align-content: start;
+    padding: clamp(1.6rem, 4vw, 2.6rem);
+    border-radius: 28px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background:
+        radial-gradient(circle at 18% 16%, rgba(111, 213, 255, 0.18), transparent 42%),
+        radial-gradient(circle at 82% 30%, rgba(246, 193, 119, 0.2), transparent 36%),
+        rgba(7, 10, 14, 0.78);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    justify-items: center;
+}
+
+.band-perks {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.65rem;
+    color: rgba(246, 246, 246, 0.85);
+    justify-items: center;
+    text-align: center;
+}
+
+.band-perks li {
+    position: relative;
+    padding-left: 1.35rem;
+}
+
+.band-perks li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.55rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: var(--band-blue);
+    box-shadow: 0 0 12px rgba(111, 213, 255, 0.45);
+}
+
+.band-cta {
+    display: grid;
+    gap: 0.65rem;
+    justify-items: center;
+}
+
+.band-offer__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.85rem 1.9rem;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-size: 0.72rem;
+    text-decoration: none;
+    background: linear-gradient(120deg, var(--band-blue), var(--band-amber));
+    color: #050505;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.band-offer__footnote {
+    margin: 0;
+    color: rgba(246, 246, 246, 0.78);
+    font-size: 0.94rem;
+    line-height: 1.55;
 }
 
 .section__inner--pricing {
